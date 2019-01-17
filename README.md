@@ -13,7 +13,7 @@ dependencies:
   app_settings: 1.0.0
 ```
 
-Import 'app_settings.dart' into your dart code.
+Next, import 'app_settings.dart' into your dart code.
 
 ```dart
 import 'package:app_settings/app_settings.dart';
