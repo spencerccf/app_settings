@@ -1,6 +1,6 @@
 # app_settings
 
-A Flutter plugin for opening iOS and Androoid phone settings from an app.
+A Flutter plugin for opening iOS and Android phone settings from an app.
 
 ## Getting Started
  
@@ -19,7 +19,17 @@ Import 'app_settings.dart' into your dart code.
 import 'package:app_settings/app_settings.dart';
 ```
 
-Example implementation using a raised button 'onPressed' event.
+## Platform Specifics
+The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings  
+
+### iOS
+All three options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
+
+### Android
+Each option will open and display the exact corresponding screen: WIFI, Location, or Security
+
+## Example
+Example implementation using a raised button 'onPressed' event.  
 
 ```dart
 Widget build(BuildContext context) {
