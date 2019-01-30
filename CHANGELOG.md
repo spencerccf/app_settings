@@ -12,3 +12,7 @@ Each option will open and display the corresponding screen: WIFI, Location, or S
 ## 1.0.3
 
 Adding additional documentation.
+
+## 1.0.4
+
+Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
