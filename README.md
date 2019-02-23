@@ -1,5 +1,7 @@
 # app_settings
 
+[![pub package](https://img.shields.io/pub/v/app_settings.svg)](https://pub.dartlang.org/packages/app_settings)
+
 A Flutter plugin for opening iOS and Android phone settings from an app.
 
 ## Getting Started
