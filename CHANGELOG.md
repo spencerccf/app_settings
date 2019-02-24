@@ -16,3 +16,8 @@ Adding additional documentation.
 ## 1.0.4
 
 Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
+
+## 1.0.5
+
+Ensure the plugin stays compatible with iOS8+.
+Declare Swift compatibility version 4.2.

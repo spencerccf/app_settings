@@ -5,7 +5,7 @@ import UIKit
 public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
   /// Private method to open device settings window
   private func openSettings() {
-      if let url = URL(string: "\(UIApplication.openSettingsURLString)") {        
+      if let url = URL(string: UIApplication.openSettingsURLString) {
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -13,6 +13,7 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
         }
       }
   }
+
   /// Public register method for Flutter plugin registrar.
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "app_settings", binaryMessenger: registrar.messenger())
@@ -21,7 +22,7 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
   }
 
   /// Public handler method for managing method channel calls.
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {    
+  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       openSettings()
   }
 }
