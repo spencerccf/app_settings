@@ -19,4 +19,9 @@ class AppSettings {
   static Future openSecuritySettings() async {
     _channel.invokeMethod('security');
   }
+
+  /// Future async method call to open app specific settings screen.
+  static Future openAppSettings() async {
+    _channel.invokeMethod('app_settings');
+  }
 }
