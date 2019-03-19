@@ -22,13 +22,14 @@ import 'package:app_settings/app_settings.dart';
 ```
 
 ## Platform Specifics
-The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings  
-
+The following setting options available on both iOS and Android: openAppSettings, openWIFISettings, openLocationSettings, openSecuritySettings
 ### iOS
-All three options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
+All four options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
 
 ### Android
-Each option will open and display the exact corresponding screen: WIFI, Location, or Security.
+Each option will open and display the exact corresponding system settings screen: WIFI, Location, or Security.
+
+Using the openAppSettings option will open the current 'app' settings for the running app.
 
 ## Example
 Example implementation using a raised button 'onPressed' event.  
