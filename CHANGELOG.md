@@ -1,4 +1,4 @@
-## 1.0.2
+## app_settings 1.0.6
 
 ## Platform Specifics
 The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings.
@@ -9,19 +9,20 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security.
 
-## 1.0.3
+## 1.0.6
 
-Adding additional documentation.
-
-## 1.0.4
-
-Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
+Add openAppSettings() to access platform specific 'app' settings menu.
 
 ## 1.0.5
 
 Ensure the plugin stays compatible with iOS8+.
 Declare Swift compatibility version 4.2.
 
-## 1.0.6
+## 1.0.4
 
-Add openAppSettings() to access platform specific 'app' settings menu.
+Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_version = '1.3.20'
+
+
+## 1.0.3
+
+Adding additional documentation.
