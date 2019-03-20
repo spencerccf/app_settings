@@ -21,3 +21,7 @@ Upgrading Kotlin version from: ext.kotlin_version = '1.2.71' to ext.kotlin_versi
 
 Ensure the plugin stays compatible with iOS8+.
 Declare Swift compatibility version 4.2.
+
+## 1.0.6
+
+Add openAppSettings() to access platform specific 'app' settings menu.

@@ -2,12 +2,14 @@ package com.example.appsettings
 
 import android.content.Intent;
 import android.provider.Settings;
+import android.net.Uri
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
+
 
 class AppSettingsPlugin: MethodCallHandler {
   /// Private variable to hold instance of Registrar for creating Intents.
@@ -39,6 +41,12 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS)
     } else if (call.method == "security") {
       openSettings(android.provider.Settings.ACTION_SECURITY_SETTINGS)
+    } else if (call.method == "app_settings") {
+      val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+      val uri = Uri.fromParts("package", this.registrar.activity().getPackageName(), null)
+      intent.setData(uri)
+      this.registrar.activity().startActivity(intent)
     }
   }
 }
