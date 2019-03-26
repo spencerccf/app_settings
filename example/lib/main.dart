@@ -55,9 +55,9 @@ class _MyAppState extends State<MyApp> {
           title: const Text('App Settings Example App'),
         ),
         body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               FlatButton(
                 child: Text("Open WIFI"),
                 onPressed: () {
@@ -76,7 +76,15 @@ class _MyAppState extends State<MyApp> {
                   AppSettings.openSecuritySettings();
                 },
               ),
-            ])),
+              FlatButton(
+                child: Text("Open App Settings"),
+                onPressed: () {
+                  AppSettings.openAppSettings();
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
