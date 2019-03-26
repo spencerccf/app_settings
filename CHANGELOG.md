@@ -9,6 +9,10 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security.
 
+## 1.1.0
+
+Replace Androids Kotlin implementation with simple Java.
+
 ## 1.0.6
 
 Add openAppSettings() to access platform specific 'app' settings menu.
