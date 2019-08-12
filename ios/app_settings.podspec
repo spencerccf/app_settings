@@ -3,14 +3,12 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'app_settings'
-  s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
-  s.description      = <<-DESC
-A new flutter plugin project.
-                       DESC
-  s.homepage         = 'http://example.com'
+  s.version          = '1.0.6+1'
+  s.summary          = 'A Flutter plugin for opening iOS and Android phone settings from an app.'
+  s.description      = ''
+  s.homepage         = 'https://github.com/spencerccf/app_settings'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'spencerccf@gmail.com' => 'spencerccf@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
