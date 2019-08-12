@@ -23,7 +23,14 @@ import 'package:app_settings/app_settings.dart';
 The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings  
 
 ### iOS
+  ***TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
+    
+    - target 'Runner' do
+        use_frameworks!
+
 All three options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
+
+
 
 ### Android
 Each option will open and display the exact corresponding screen: WIFI, Location, or Security.
