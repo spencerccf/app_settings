@@ -1,4 +1,4 @@
-## app_settings 1.0.6
+## app_settings 1.0.6+2
 
 ## Platform Specifics
 The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings.
@@ -8,6 +8,9 @@ All three options open the current 'app' settings section if there are settings 
 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security.
+
+## 1.0.6+2
+Added missing `podspec` description
 
 ## 1.0.6+1
   ***iOS TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
