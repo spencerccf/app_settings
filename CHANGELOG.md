@@ -1,4 +1,4 @@
-## app_settings 1.0.6+2
+## app_settings 2.0.0
 
 ## Platform Specifics
 The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings.
@@ -8,6 +8,9 @@ All three options open the current 'app' settings section if there are settings 
 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security.
+
+## 2.0.0
+Update AGP, migrate to `AndroidX`
 
 ## 1.0.6+2
 Added missing `podspec` description
