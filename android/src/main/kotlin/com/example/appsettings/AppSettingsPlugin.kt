@@ -17,7 +17,20 @@ class AppSettingsPlugin: MethodCallHandler {
 
   /// Private method to open device settings window
   private fun openSettings(url: String) {
-    this.registrar.activity().startActivity(Intent(url))
+    try {
+      this.registrar.activity().startActivity(Intent(url))
+    } catch(e:Exception) {
+      // Default to APP Settings if setting activity fails to load/be available on device
+      openAppSettings()
+    }
+  }
+
+  private fun openAppSettings() {
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    val uri = Uri.fromParts("package", this.registrar.activity().getPackageName(), null)
+    intent.setData(uri)
+    this.registrar.activity().startActivity(intent)
   }
 
   /// Main constructor to setup the Registrar
@@ -36,17 +49,17 @@ class AppSettingsPlugin: MethodCallHandler {
   /// Handler method to manage method channel calls.
   override fun onMethodCall(call: MethodCall, result: Result) {
     if (call.method == "wifi") {
-      openSettings(android.provider.Settings.ACTION_WIFI_SETTINGS)
+      openSettings(Settings.ACTION_WIFI_SETTINGS)
     } else if (call.method == "location") {
-      openSettings(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+      openSettings(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
     } else if (call.method == "security") {
-      openSettings(android.provider.Settings.ACTION_SECURITY_SETTINGS)
+      openSettings(Settings.ACTION_SECURITY_SETTINGS)
+    } else if (call.method == "bluetooth") {
+      openSettings(Settings.ACTION_BLUETOOTH_SETTINGS)
+    } else if (call.method == "data_roaming") {
+      openSettings(Settings.ACTION_DATA_ROAMING_SETTINGS)
     } else if (call.method == "app_settings") {
-      val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-      val uri = Uri.fromParts("package", this.registrar.activity().getPackageName(), null)
-      intent.setData(uri)
-      this.registrar.activity().startActivity(intent)
+      openAppSettings()
     }
   }
 }

@@ -32,44 +32,70 @@ class _MyAppState extends State<MyApp> {
   /// Widget build method to return MaterailApp.
   @override
   Widget build(BuildContext context) {
+    var actionItems = getListOfActionButtons();
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('App Settings Example App'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              FlatButton(
-                child: Text("Open WIFI"),
-                onPressed: () {
-                  AppSettings.openWIFISettings();
-                },
-              ),
-              FlatButton(
-                child: Text("Open Location"),
-                onPressed: () {
-                  AppSettings.openLocationSettings();
-                },
-              ),
-              FlatButton(
-                child: Text("Open Security"),
-                onPressed: () {
-                  AppSettings.openSecuritySettings();
-                },
-              ),
-              FlatButton(
-                child: Text("Open App Settings"),
-                onPressed: () {
-                  AppSettings.openAppSettings();
-                },
-              ),
-            ],
-          ),
-        ),
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text('App Settings Example App'),
+            ),
+            body: GridView.count(
+                // Create a grid with 2 columns. If you change the scrollDirection to
+                // horizontal, this produces 2 rows.
+                crossAxisCount: 2,
+                // Generate 100 widgets that display their index in the List.
+                children: List.generate(actionItems.length, (index) {
+                  return Center(
+                      child: ButtonTheme(
+                    colorScheme: ColorScheme.dark(),
+                    minWidth: 150.0,
+                    child: actionItems[index],
+                  ));
+                }))));
+  }
+
+  List<Widget> getListOfActionButtons() {
+    var actionItems = List<Widget>();
+
+    actionItems.addAll([
+      RaisedButton(
+        child: Text("Open WIFI"),
+        onPressed: () {
+          AppSettings.openWIFISettings();
+        },
       ),
-    );
+      RaisedButton(
+        child: Text("Open Location"),
+        onPressed: () {
+          AppSettings.openLocationSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Open Security"),
+        onPressed: () {
+          AppSettings.openSecuritySettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Open App Settings"),
+        onPressed: () {
+          AppSettings.openAppSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Open Bluetooth"),
+        onPressed: () {
+          AppSettings.openBluetoothSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Open Data Roaming"),
+        onPressed: () {
+          AppSettings.openDataRoamingSettings();
+        },
+      ),
+    ]);
+
+    return actionItems;
   }
 
   /// Dispose method to close out and cleanup objects.

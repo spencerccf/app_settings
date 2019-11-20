@@ -9,6 +9,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security.
 
+## 2.0.1
+Added Bluetooth & Data Roaming settings access for Android (more to come).  iOS will still rely on App Settings.
+
 ## 2.0.0
 Update AGP, migrate to `AndroidX`
 

@@ -20,6 +20,16 @@ class AppSettings {
     _channel.invokeMethod('security');
   }
 
+  /// Future async method call to open bluetooth settings.
+  static Future<void> openBluetoothSettings() async {
+    _channel.invokeMethod('bluetooth');
+  }
+
+  /// Future async method call to open data roaming settings.
+  static Future<void> openDataRoamingSettings() async {
+    _channel.invokeMethod('data_roaming');
+  }
+
   /// Future async method call to open app specific settings screen.
   static Future<void> openAppSettings() async {
     _channel.invokeMethod('app_settings');
