@@ -58,6 +58,14 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(Settings.ACTION_BLUETOOTH_SETTINGS)
     } else if (call.method == "data_roaming") {
       openSettings(Settings.ACTION_DATA_ROAMING_SETTINGS)
+    } else if (call.method == "date") {
+      openSettings(Settings.ACTION_DATE_SETTINGS)
+    } else if (call.method == "display") {
+      openSettings(Settings.ACTION_DISPLAY_SETTINGS)
+    } else if (call.method == "notification") {
+      openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+    } else if (call.method == "sound") {
+      openSettings(Settings.ACTION_SOUND_SETTINGS)
     } else if (call.method == "app_settings") {
       openAppSettings()
     }

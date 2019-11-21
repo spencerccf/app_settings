@@ -30,6 +30,26 @@ class AppSettings {
     _channel.invokeMethod('data_roaming');
   }
 
+  /// Future async method call to open date settings.
+  static Future<void> openDateSettings() async {
+    _channel.invokeMethod('date');
+  }
+
+  /// Future async method call to open display settings.
+  static Future<void> openDisplaySettings() async {
+    _channel.invokeMethod('display');
+  }
+
+  /// Future async method call to open notification settings.
+  static Future<void> openNotificationSettings() async {
+    _channel.invokeMethod('notification');
+  }
+
+  /// Future async method call to open sound settings.
+  static Future<void> openSoundSettings() async {
+    _channel.invokeMethod('sound');
+  }
+
   /// Future async method call to open app specific settings screen.
   static Future<void> openAppSettings() async {
     _channel.invokeMethod('app_settings');

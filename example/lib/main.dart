@@ -39,10 +39,8 @@ class _MyAppState extends State<MyApp> {
               title: const Text('App Settings Example App'),
             ),
             body: GridView.count(
-                // Create a grid with 2 columns. If you change the scrollDirection to
-                // horizontal, this produces 2 rows.
                 crossAxisCount: 2,
-                // Generate 100 widgets that display their index in the List.
+                childAspectRatio: 2,
                 children: List.generate(actionItems.length, (index) {
                   return Center(
                       child: ButtonTheme(
@@ -58,39 +56,63 @@ class _MyAppState extends State<MyApp> {
 
     actionItems.addAll([
       RaisedButton(
-        child: Text("Open WIFI"),
+        child: Text("WIFI"),
         onPressed: () {
           AppSettings.openWIFISettings();
         },
       ),
       RaisedButton(
-        child: Text("Open Location"),
+        child: Text("Location"),
         onPressed: () {
           AppSettings.openLocationSettings();
         },
       ),
       RaisedButton(
-        child: Text("Open Security"),
+        child: Text("Security"),
         onPressed: () {
           AppSettings.openSecuritySettings();
         },
       ),
       RaisedButton(
-        child: Text("Open App Settings"),
+        child: Text("App Settings"),
         onPressed: () {
           AppSettings.openAppSettings();
         },
       ),
       RaisedButton(
-        child: Text("Open Bluetooth"),
+        child: Text("Bluetooth"),
         onPressed: () {
           AppSettings.openBluetoothSettings();
         },
       ),
       RaisedButton(
-        child: Text("Open Data Roaming"),
+        child: Text("Data Roaming"),
         onPressed: () {
           AppSettings.openDataRoamingSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Date"),
+        onPressed: () {
+          AppSettings.openDateSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Display"),
+        onPressed: () {
+          AppSettings.openDisplaySettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Notification"),
+        onPressed: () {
+          AppSettings.openNotificationSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Sound"),
+        onPressed: () {
+          AppSettings.openSoundSettings();
         },
       ),
     ]);
