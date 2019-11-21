@@ -1,11 +1,14 @@
 ## Platform Specifics
-The following setting options available on both iOS and Android: openWIFISettings, openLocationSettings, openSecuritySettings.
+The following setting options available on both iOS and Android: openAppSettings, openWIFISettings, openLocationSettings, openSecuritySettings, openBluetoothSettings, openDataRoamingSettings, openDateSettings, openDisplaySettings, openNotificationSettings, openSoundSettings
 
 ### iOS
 All three options open the current 'app' settings section if there are settings defined.  If no current settings are defined for the app the iPhone Settings Screen will be displayed.
 
 ### Android
-Each option will open and display the corresponding screen: WIFI, Location, or Security.
+Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
+
+## 2.0.2
+Added Date, Display, Notification, and Sound settings access for Android.  iOS will still rely on App Settings.
 
 ## 2.0.1+1
 Added Bluetooth & Data Roaming settings access for Android (more to come).  iOS will still rely on App Settings.
