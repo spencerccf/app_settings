@@ -7,6 +7,12 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 3.0.0
+Upgrade to Swift version: 5.0.1 - This version will only work on projects running Swift 5.0.1
+
+## 2.0.2
+Legacy Swift 4 support.
+
 ## 2.0.2
 Added Date, Display, Notification, and Sound settings access for Android.  iOS will still rely on App Settings.
 
