@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 3.0.0+1
+Update plugin version in `.podspec`
+
 ## 3.0.0
 Upgrade to Swift version: 5.0.1 - This version will only work on projects running Swift 5.0.1
 
