@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 3.0.1
+Added Internal Storage settings access for Android.  iOS will still rely on App Settings.
+
 ## 3.0.0+1
 Update plugin version in `.podspec`
 

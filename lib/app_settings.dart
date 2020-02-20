@@ -50,6 +50,11 @@ class AppSettings {
     _channel.invokeMethod('sound');
   }
 
+  /// Future async method call to open internal storage settings.
+  static Future<void> openInternalStorageSettings() async {
+    _channel.invokeMethod('internal_storage');
+  }
+
   /// Future async method call to open app specific settings screen.
   static Future<void> openAppSettings() async {
     _channel.invokeMethod('app_settings');

@@ -66,6 +66,8 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
     } else if (call.method == "sound") {
       openSettings(Settings.ACTION_SOUND_SETTINGS)
+    } else if (call.method == "internal_storage") {
+      openSettings(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
     } else if (call.method == "app_settings") {
       openAppSettings()
     }
