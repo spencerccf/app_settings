@@ -115,6 +115,12 @@ class _MyAppState extends State<MyApp> {
           AppSettings.openSoundSettings();
         },
       ),
+      RaisedButton(
+        child: Text("Internal Storage"),
+        onPressed: () {
+          AppSettings.openInternalStorageSettings();
+        },
+      ),
     ]);
 
     return actionItems;
