@@ -7,6 +7,14 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.0.0
+Updates Gradle wrapper distribution from 4.6 -> 6.2.2
+Updates Kotlin plugin version from 1.3.50 -> 1.3.70
+Updates Android Gradle plugin from 3.5.1 -> 3.6.1
+Updates compileSdkVersion from 28 -> 'android-R'
+
+Also removes generated/non-essential files, updates .gitignore to the latest flutter create standard and "fixes" faulty example test. Tested and working on Android R. Should probably be tested on lower API devices as well.
+
 ## 3.0.1
 Added Internal Storage settings access for Android.  iOS will still rely on App Settings.
 
