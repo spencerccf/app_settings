@@ -36,6 +36,18 @@ Each option will open and display the exact corresponding system settings screen
 
 Using the openAppSettings option will open the current 'app' settings for the running app.
 
+In some cases, to access directly the Bluetooth window, you will need to provide access permissions in the android/app/src/main/AndroidManifest.xml
+
+```dart
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.yourname.yourapp">   
+	 <uses-permission android:name="android.permission.BLUETOOTH" />  
+	 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />  
+	 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>  
+ <application
+```
+
+
+
 ## Example
 Example implementation using a raised button 'onPressed' event.  
 
