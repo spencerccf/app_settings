@@ -5,7 +5,7 @@ import UIKit
 public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
   /// Private method to open device settings window
   private func openSettings() {
-      if let url = URL(string: UIApplication.openSettingsURLString) {
+      if let url = URL(string: UIApplicationOpenSettingsURLString) {
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
