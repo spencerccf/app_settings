@@ -68,6 +68,8 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(Settings.ACTION_SOUND_SETTINGS)
     } else if (call.method == "internal_storage") {
       openSettings(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
+    } else if (call.method == "battery_optimization") {
+      openSettings(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
     } else if (call.method == "app_settings") {
       openAppSettings()
     }
