@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.0.1
+Added Battery Optimization settings access for Android.  iOS will still rely on App Settings.
+
 ## 4.0.0
 Updates Gradle wrapper distribution from 4.6 -> 6.2.2
 
