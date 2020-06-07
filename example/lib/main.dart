@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:app_settings/app_settings.dart';
+import 'package:flutter/material.dart';
 
 /// Main method to return runApp.
 void main() => runApp(MyApp());
@@ -119,6 +119,12 @@ class _MyAppState extends State<MyApp> {
         child: Text("Internal Storage"),
         onPressed: () {
           AppSettings.openInternalStorageSettings();
+        },
+      ),
+      RaisedButton(
+        child: Text("Battery optimization"),
+        onPressed: () {
+          AppSettings.openBatteryOptimizationSettings();
         },
       ),
     ]);

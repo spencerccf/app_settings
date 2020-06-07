@@ -12,7 +12,7 @@ A Flutter plugin for opening iOS and Android phone settings from an app.
 dependencies:
   flutter:
     sdk: flutter
-  app_settings: 4.0.0
+  app_settings: 4.0.1
 ```
 
 Next, import 'app_settings.dart' into your dart code.
@@ -22,7 +22,8 @@ import 'package:app_settings/app_settings.dart';
 ```
 
 ## Platform Specifics
-The following setting options available on both iOS and Android: openAppSettings, openWIFISettings, openLocationSettings, openSecuritySettings, openBluetoothSettings, openDataRoamingSettings, openDateSettings, openDisplaySettings, openNotificationSettings, openSoundSettings, openInternalStorageSettings
+The following setting options available on both iOS and Android: openAppSettings, openWIFISettings, openLocationSettings, openSecuritySettings, openBluetoothSettings, openDataRoamingSettings
+, openDateSettings, openDisplaySettings, openNotificationSettings, openSoundSettings, openInternalStorageSettings, openBatteryOptimizationSettings
 ### iOS
   ***TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
     

@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/services.dart';
 
 class AppSettings {
@@ -53,6 +54,11 @@ class AppSettings {
   /// Future async method call to open internal storage settings.
   static Future<void> openInternalStorageSettings() async {
     _channel.invokeMethod('internal_storage');
+  }
+
+  /// Future async method call to open battery optimization settings.
+  static Future<void> openBatteryOptimizationSettings() async {
+    _channel.invokeMethod('battery_optimization');
   }
 
   /// Future async method call to open app specific settings screen.
