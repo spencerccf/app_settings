@@ -64,6 +64,8 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(Settings.ACTION_DISPLAY_SETTINGS)
     } else if (call.method == "notification") {
       openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+    } else if (call.method == "nfc") {
+      openSettings(Settings.ACTION_NFC_SETTINGS)
     } else if (call.method == "sound") {
       openSettings(Settings.ACTION_SOUND_SETTINGS)
     } else if (call.method == "internal_storage") {
