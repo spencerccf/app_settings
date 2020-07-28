@@ -127,6 +127,12 @@ class _MyAppState extends State<MyApp> {
           AppSettings.openBatteryOptimizationSettings();
         },
       ),
+      RaisedButton(
+        child: Text("NFC"),
+        onPressed: () {
+          AppSettings.openNFCSettings();
+        },
+      ),
     ]);
 
     return actionItems;
