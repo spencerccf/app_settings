@@ -3,6 +3,7 @@ package com.example.appsettings
 import android.content.Intent;
 import android.provider.Settings;
 import android.net.Uri
+import android.os.Build
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -63,7 +64,13 @@ class AppSettingsPlugin: MethodCallHandler {
     } else if (call.method == "display") {
       openSettings(Settings.ACTION_DISPLAY_SETTINGS)
     } else if (call.method == "notification") {
-      openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+      if(Build.VERSION.SDK_INT >= 21) {
+        val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                    .putExtra(Settings.EXTRA_APP_PACKAGE, this.registrar.activity().getPackageName())
+                this.registrar.activity().startActivity(intent);
+      } else {
+        openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+      }
     } else if (call.method == "nfc") {
       openSettings(Settings.ACTION_NFC_SETTINGS)
     } else if (call.method == "sound") {
