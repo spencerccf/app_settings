@@ -7,14 +7,17 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.0.4
+Updated plugin to support android new package api for post 1.12 flutter.
+
 ## 4.0.3
-Bug fix for Android openNotificationSettings
+Bug fix for Android openNotificationSettings.
 
 ## 4.0.2
 Adding in NFC settings access for Android. iOS will still rely on App Settings.
 
 ## 4.0.1+1
-Update Android compileSdkVersion to 30
+Update Android compileSdkVersion to 30.
 
 ## 4.0.1
 Added Battery Optimization settings access for Android.  iOS will still rely on App Settings.
