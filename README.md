@@ -57,7 +57,7 @@ Widget build(BuildContext context) {
     return Row(
         children: <Widget>[
             RaisedButton(
-                onPressed: AppSettings.openLocationSettings(),
+                onPressed: AppSettings.openLocationSettings,
                 child: Text('Open Location Settings'),
             ),
         ],
