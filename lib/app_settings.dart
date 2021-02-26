@@ -7,67 +7,119 @@ class AppSettings {
   static const MethodChannel _channel = const MethodChannel('app_settings');
 
   /// Future async method call to open WIFI settings.
-  static Future<void> openWIFISettings() async {
-    _channel.invokeMethod('wifi');
+  static Future<void> openWIFISettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('wifi', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open location settings.
-  static Future<void> openLocationSettings() async {
-    _channel.invokeMethod('location');
+  static Future<void> openLocationSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('location', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open security settings.
-  static Future<void> openSecuritySettings() async {
-    _channel.invokeMethod('security');
+  static Future<void> openSecuritySettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('security', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open bluetooth settings.
-  static Future<void> openBluetoothSettings() async {
-    _channel.invokeMethod('bluetooth');
+  static Future<void> openBluetoothSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('bluetooth', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open data roaming settings.
-  static Future<void> openDataRoamingSettings() async {
-    _channel.invokeMethod('data_roaming');
+  static Future<void> openDataRoamingSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('data_roaming', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open date settings.
-  static Future<void> openDateSettings() async {
-    _channel.invokeMethod('date');
+  static Future<void> openDateSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('date', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open display settings.
-  static Future<void> openDisplaySettings() async {
-    _channel.invokeMethod('display');
+  static Future<void> openDisplaySettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('display', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open notification settings.
-  static Future<void> openNotificationSettings() async {
-    _channel.invokeMethod('notification');
+  static Future<void> openNotificationSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('notification', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open sound settings.
-  static Future<void> openSoundSettings() async {
-    _channel.invokeMethod('sound');
+  static Future<void> openSoundSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('sound', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open internal storage settings.
-  static Future<void> openInternalStorageSettings() async {
-    _channel.invokeMethod('internal_storage');
+  static Future<void> openInternalStorageSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('internal_storage', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open battery optimization settings.
-  static Future<void> openBatteryOptimizationSettings() async {
-    _channel.invokeMethod('battery_optimization');
+  static Future<void> openBatteryOptimizationSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('battery_optimization', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open app specific settings screen.
-  static Future<void> openAppSettings() async {
-    _channel.invokeMethod('app_settings');
+  static Future<void> openAppSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('app_settings', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open NCF settings.
-  static Future<void> openNFCSettings() async {
-    _channel.invokeMethod('nfc');
+  static Future<void> openNFCSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('nfc', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 }
