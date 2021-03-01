@@ -52,82 +52,82 @@ class _MyAppState extends State<MyApp> {
   }
 
   List<Widget> getListOfActionButtons() {
-    var actionItems = List<Widget>();
+    var actionItems = <Widget>[];
 
     actionItems.addAll([
-      RaisedButton(
+      ElevatedButton(
         child: Text("WIFI"),
         onPressed: () {
           AppSettings.openWIFISettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Location"),
         onPressed: () {
           AppSettings.openLocationSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Security"),
         onPressed: () {
           AppSettings.openSecuritySettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("App Settings"),
         onPressed: () {
           AppSettings.openAppSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Bluetooth"),
         onPressed: () {
           AppSettings.openBluetoothSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Data Roaming"),
         onPressed: () {
           AppSettings.openDataRoamingSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Date"),
         onPressed: () {
           AppSettings.openDateSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Display"),
         onPressed: () {
           AppSettings.openDisplaySettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Notification"),
         onPressed: () {
           AppSettings.openNotificationSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Sound"),
         onPressed: () {
           AppSettings.openSoundSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Internal Storage"),
         onPressed: () {
           AppSettings.openInternalStorageSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("Battery optimization"),
         onPressed: () {
           AppSettings.openBatteryOptimizationSettings();
         },
       ),
-      RaisedButton(
+      ElevatedButton(
         child: Text("NFC"),
         onPressed: () {
           AppSettings.openNFCSettings();
