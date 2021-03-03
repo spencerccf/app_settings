@@ -9,6 +9,8 @@ Each option will open and display the corresponding screen: WIFI, Location, or S
 
 ## 4.1.0
 Null safety support.
+Ability to open settings as a new task on Android.
+Updates to README.
 
 ## 4.0.4
 Updated plugin to support android new package api for post 1.12 flutter.
