@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.0
+Null safety support.
+
 ## 4.0.4
 Updated plugin to support android new package api for post 1.12 flutter.
 
