@@ -122,4 +122,13 @@ class AppSettings {
       'asAnotherTask': asAnotherTask,
     });
   }
+
+  /// Future async method call to open Device settings.
+  static Future<void> openDeviceSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('device_settings', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
 }
