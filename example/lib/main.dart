@@ -133,6 +133,14 @@ class _MyAppState extends State<MyApp> {
           AppSettings.openNFCSettings();
         },
       ),
+      ElevatedButton(
+        child: Text("Device Settings"),
+        onPressed: () {
+          AppSettings.openDeviceSettings(
+            asAnotherTask: true,
+          );
+        },
+      ),
     ]);
 
     return actionItems;

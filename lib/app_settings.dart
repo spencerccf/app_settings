@@ -123,12 +123,21 @@ class AppSettings {
     });
   }
 
+  /// Future async method call to open Device settings.
+  static Future<void> openDeviceSettings({
+      bool asAnotherTask = false,
+    }) async {
+      _channel.invokeMethod('device_settings', {
+        'asAnotherTask': asAnotherTask,
+      });
+  }
+
   /// Future async method call to open VPN settings.
   static Future<void> openVPNSettings({
-    bool asAnotherTask = false,
-  }) async {
-    _channel.invokeMethod('vpn', {
-      'asAnotherTask': asAnotherTask,
-    });
+      bool asAnotherTask = false,
+    }) async {
+      _channel.invokeMethod('vpn', {
+        'asAnotherTask': asAnotherTask,
+      });
   }
 }
