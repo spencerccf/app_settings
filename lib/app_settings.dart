@@ -122,4 +122,13 @@ class AppSettings {
       'asAnotherTask': asAnotherTask,
     });
   }
+
+  /// Future async method call to open VPN settings.
+  static Future<void> openVPNSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('vpn', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
 }
