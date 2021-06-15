@@ -134,6 +134,14 @@ class _MyAppState extends State<MyApp> {
         },
       ),
       ElevatedButton(
+        child: Text("VPN"),
+        onPressed: () {
+          AppSettings.openVPNSettings(
+            asAnotherTask: true,
+          );
+        },
+      ),
+      ElevatedButton(
         child: Text("Device Settings"),
         onPressed: () {
           AppSettings.openDeviceSettings(
