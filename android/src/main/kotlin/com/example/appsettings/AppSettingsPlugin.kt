@@ -111,6 +111,12 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             openSettings(Settings.ACTION_INTERNAL_STORAGE_SETTINGS, asAnotherTask)
         } else if (call.method == "battery_optimization") {
             openSettings(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS, asAnotherTask)
+        } else if (call.method == "vpn") {
+            if(Build.VERSION.SDK_INT >= 24) {
+                openSettings(Settings.ACTION_VPN_SETTINGS, asAnotherTask)
+            }else{
+                openSettings("android.net.vpn.SETTINGS", asAnotherTask)
+            }
         } else if (call.method == "app_settings") {
             openAppSettings(asAnotherTask)
         }
