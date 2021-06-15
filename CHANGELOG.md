@@ -7,6 +7,10 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.1
+Ability to open VPN settings.
+Ability to open device settings screen.
+
 ## 4.1.0
 Null safety support.
 Ability to open settings as a new task on Android.
