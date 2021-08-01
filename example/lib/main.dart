@@ -149,6 +149,14 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
+       ElevatedButton(
+        child: Text("Accessibility"),
+        onPressed: () {
+          AppSettings.openAccessibilitySettings(
+            asAnotherTask: true,
+          );
+        },
+      ),
     ]);
 
     return actionItems;
