@@ -140,4 +140,13 @@ class AppSettings {
         'asAnotherTask': asAnotherTask,
       });
   }
+
+   /// Future async method call to open accessibility settings.
+  static Future<void> openAccessibilitySettings({
+      bool asAnotherTask = false,
+    }) async {
+      _channel.invokeMethod('accessibility', {
+        'asAnotherTask': asAnotherTask,
+      });
+  }
 }
