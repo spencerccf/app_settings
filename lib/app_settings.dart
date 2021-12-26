@@ -15,6 +15,15 @@ class AppSettings {
     });
   }
 
+  /// Future async method call to open wireless settings.
+  static Future<void> openWirelessSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('wireless', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
+
   /// Future async method call to open location settings.
   static Future<void> openLocationSettings({
     bool asAnotherTask = false,
