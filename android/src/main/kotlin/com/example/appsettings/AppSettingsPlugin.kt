@@ -1,6 +1,7 @@
 package com.example.appsettings
 
 import android.app.Activity
+import android.app.admin.DevicePolicyManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -88,6 +89,8 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             openSettings(Settings.ACTION_LOCATION_SOURCE_SETTINGS, asAnotherTask)
         } else if (call.method == "security") {
             openSettings(Settings.ACTION_SECURITY_SETTINGS, asAnotherTask)
+        } else if (call.method == "locksettings") {
+            openSettings(DevicePolicyManager.ACTION_SET_NEW_PASSWORD, asAnotherTask)
         } else if (call.method == "bluetooth") {
             openSettings(Settings.ACTION_BLUETOOTH_SETTINGS, asAnotherTask)
         } else if (call.method == "data_roaming") {

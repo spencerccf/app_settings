@@ -74,6 +74,12 @@ class _MyAppState extends State<MyApp> {
         },
       ),
       ElevatedButton(
+        child: Text("Lock & Password"),
+        onPressed: () {
+          AppSettings.openLockAndPasswordSettings();
+        },
+      ),
+      ElevatedButton(
         child: Text("App Settings"),
         onPressed: () {
           AppSettings.openAppSettings();
@@ -149,7 +155,7 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
-       ElevatedButton(
+      ElevatedButton(
         child: Text("Accessibility"),
         onPressed: () {
           AppSettings.openAccessibilitySettings(
