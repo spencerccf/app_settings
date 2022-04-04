@@ -42,6 +42,15 @@ class AppSettings {
     });
   }
 
+  /// Future async method call to open security settings.
+  static Future<void> openLockAndPasswordSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('locksettings', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
+
   /// Future async method call to open bluetooth settings.
   static Future<void> openBluetoothSettings({
     bool asAnotherTask = false,
@@ -134,28 +143,28 @@ class AppSettings {
 
   /// Future async method call to open Device settings.
   static Future<void> openDeviceSettings({
-      bool asAnotherTask = false,
-    }) async {
-      _channel.invokeMethod('device_settings', {
-        'asAnotherTask': asAnotherTask,
-      });
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('device_settings', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
   /// Future async method call to open VPN settings.
   static Future<void> openVPNSettings({
-      bool asAnotherTask = false,
-    }) async {
-      _channel.invokeMethod('vpn', {
-        'asAnotherTask': asAnotherTask,
-      });
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('vpn', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 
-   /// Future async method call to open accessibility settings.
+  /// Future async method call to open accessibility settings.
   static Future<void> openAccessibilitySettings({
-      bool asAnotherTask = false,
-    }) async {
-      _channel.invokeMethod('accessibility', {
-        'asAnotherTask': asAnotherTask,
-      });
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('accessibility', {
+      'asAnotherTask': asAnotherTask,
+    });
   }
 }

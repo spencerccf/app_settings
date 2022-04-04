@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.3
+Added Android open Lock & Password settings.
+
 ## 4.1.2
 Update Android compileSdkVersion to 31.
 Removed deprecated calls in Registrar
