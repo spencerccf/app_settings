@@ -7,6 +7,11 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.2
+Update Android compileSdkVersion to 31.
+Removed deprecated calls in Registrar
+Migrated plugin to v1.12: https://docs.flutter.dev/development/packages-and-plugins/plugin-api-migration
+
 ## 4.1.1
 Ability to open VPN settings.
 Ability to open device settings screen.

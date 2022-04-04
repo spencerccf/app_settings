@@ -41,7 +41,7 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
 
     /// Main constructor to setup the Registrar
     constructor(registrar: Registrar) : this() {
-        this.activity = registrar.activity()
+        //this.activity = registrar.activity() //Deprecated: https://api.flutter.dev/javadoc/io/flutter/plugin/common/PluginRegistry.Registrar.html#activity()
     }
 
     companion object {
@@ -129,4 +129,6 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, asAnotherTask)
         }
     }
+
+
 }
