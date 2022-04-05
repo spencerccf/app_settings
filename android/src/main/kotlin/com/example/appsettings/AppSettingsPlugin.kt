@@ -131,6 +131,9 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
         else if (call.method == "accessibility") {
             openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, asAnotherTask)
         }
+        elser if (call.method == "development") {
+            openAppSettings(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS, asAnotherTask)
+        }
     }
 
 

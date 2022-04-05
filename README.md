@@ -35,6 +35,7 @@ The following setting options available on both iOS and Android:
 - openSoundSettings
 - openInternalStorageSettings
 - openBatteryOptimizationSettings
+- openDevelopmentSettings
 ### iOS
   ***TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
     
