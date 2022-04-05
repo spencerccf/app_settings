@@ -163,6 +163,14 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
+      ElevatedButton(
+        child: Text("Developer"),
+        onPressed: () {
+          AppSettings.openDevelopmentSettings(
+            asAnotherTask: true,
+          );
+        },
+      ),
     ]);
 
     return actionItems;

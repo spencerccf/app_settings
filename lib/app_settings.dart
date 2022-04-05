@@ -167,4 +167,10 @@ class AppSettings {
       'asAnotherTask': asAnotherTask,
     });
   }
+
+  /// Future async method call to open Development settings.
+  static Future<void> openDevelopmentSettings(
+      {bool asAnotherTask = false}) async {
+    _channel.invokeMethod('development', {'asAnotherTask': asAnotherTask});
+  }
 }
