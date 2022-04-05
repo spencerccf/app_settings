@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.4
+Migration from jcenter() to mavenCentral()
+
 ## 4.1.3
 Added Android open Lock & Password settings.
 
