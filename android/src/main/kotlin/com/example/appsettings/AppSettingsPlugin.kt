@@ -100,13 +100,13 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
         } else if (call.method == "display") {
             openSettings(Settings.ACTION_DISPLAY_SETTINGS, asAnotherTask)
         } else if (call.method == "notification") {
-            if (Build.VERSION.SDK_INT >= 21) {
+            if (Build.VERSION.SDK_INT >= 26) {
                 val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                         .putExtra(Settings.EXTRA_APP_PACKAGE, this.activity.packageName)
                 if (asAnotherTask) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 this.activity.startActivity(intent)
             } else {
-                openSettings(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS, asAnotherTask)
+                openAppSettings(asAnotherTask)
             }
         } else if (call.method == "nfc") {
             openSettings(Settings.ACTION_NFC_SETTINGS, asAnotherTask)
