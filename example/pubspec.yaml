@@ -1,7 +1,7 @@
 name: app_settings_example
 description: Demonstrates how to use the app_settings plugin.
 publish_to: 'none'
-version: 4.1.5
+version: 4.1.6
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

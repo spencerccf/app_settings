@@ -7,6 +7,10 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.6
+Ability to open personal hotspot settings.
+Ability to open custom intents.
+
 ## 4.1.5
 Ability to open developer settings.  ** App user will need to have enabled developer mode on their device in order for this feature to open the developer settings screen.
 
