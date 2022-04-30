@@ -173,4 +173,10 @@ class AppSettings {
       {bool asAnotherTask = false}) async {
     _channel.invokeMethod('development', {'asAnotherTask': asAnotherTask});
   }
+  
+  /// Opening hotspot and tethering settings
+  static Future<void> openHotspotSettings(
+      {bool asAnotherTask = false}) async {
+    _channel.invokeMethod('hotspot', {'asAnotherTask': asAnotherTask});
+  }
 }

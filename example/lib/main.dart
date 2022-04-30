@@ -171,6 +171,14 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
+      ElevatedButton(
+        child: Text("Hotspot"),
+        onPressed: () {
+          AppSettings.openHotspotSettings(
+            asAnotherTask: true,
+          );
+        },
+      ),
     ]);
 
     return actionItems;
