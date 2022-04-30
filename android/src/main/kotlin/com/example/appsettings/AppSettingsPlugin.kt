@@ -32,6 +32,16 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
         }
     }
 
+    private fun openSettingsWithCustomIntent(intent: Intent, asAnotherTask: Boolean = false) {
+        try {
+            if (asAnotherTask) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            this.activity.startActivity(intent)
+        } catch (e: Exception) {
+            // Default to APP Settings if setting activity fails to load/be available on device
+            openAppSettings(asAnotherTask)
+        }
+    }
+
     private fun openAppSettings(asAnotherTask: Boolean = false) {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         if (asAnotherTask) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -135,19 +145,9 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             openSettings(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS, asAnotherTask)
         }
         else if(call.method == "hotspot") {
-           try {
-
             val intent = Intent()
             intent.setClassName("com.android.settings", "com.android.settings.TetherSettings")
-            if (asAnotherTask) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            this.activity.startActivity(intent)
-
-           } catch (e: Exception) {
-               // Default to APP Settings if setting activity fails to load/be available on device
-               openAppSettings(asAnotherTask)
-           }
+            openSettingsWithCustomIntent(intent, asAnotherTask)
         }
     }
-
-
 }
