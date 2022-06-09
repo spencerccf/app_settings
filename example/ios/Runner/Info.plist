@@ -47,5 +47,7 @@
 	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>
