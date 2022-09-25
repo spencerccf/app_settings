@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.1.9
+Ability to open APN settings.
+
 ## 4.1.8
 Setting dart SDK for more future support < 3.0.0
 
