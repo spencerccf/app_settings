@@ -179,6 +179,12 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
+      ElevatedButton(
+        child: Text("APN"),
+        onPressed: () {
+          AppSettings.openAPNSettings(asAnotherTask: true);
+        },
+      ),
     ]);
 
     return actionItems;

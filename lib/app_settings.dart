@@ -179,4 +179,13 @@ class AppSettings {
       {bool asAnotherTask = false}) async {
     _channel.invokeMethod('hotspot', {'asAnotherTask': asAnotherTask});
   }
+
+  /// Future async method call to open APN settings.
+  static Future<void> openAPNSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('apn', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
 }

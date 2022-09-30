@@ -148,6 +148,8 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             val intent = Intent()
             intent.setClassName("com.android.settings", "com.android.settings.TetherSettings")
             openSettingsWithCustomIntent(intent, asAnotherTask)
+        } else if (call.method == "apn") {
+            openSettings(Settings.ACTION_APN_SETTINGS, asAnotherTask)
         }
     }
 }
