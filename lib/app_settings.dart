@@ -173,10 +173,9 @@ class AppSettings {
       {bool asAnotherTask = false}) async {
     _channel.invokeMethod('development', {'asAnotherTask': asAnotherTask});
   }
-  
+
   /// Opening hotspot and tethering settings
-  static Future<void> openHotspotSettings(
-      {bool asAnotherTask = false}) async {
+  static Future<void> openHotspotSettings({bool asAnotherTask = false}) async {
     _channel.invokeMethod('hotspot', {'asAnotherTask': asAnotherTask});
   }
 
@@ -185,6 +184,15 @@ class AppSettings {
     bool asAnotherTask = false,
   }) async {
     _channel.invokeMethod('apn', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
+
+  /// Future async method call to open Alarms & Reminders settings.
+  static Future<void> openAlarmSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('alarm', {
       'asAnotherTask': asAnotherTask,
     });
   }
