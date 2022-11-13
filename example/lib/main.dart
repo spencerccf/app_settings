@@ -185,6 +185,12 @@ class _MyAppState extends State<MyApp> {
           AppSettings.openAPNSettings(asAnotherTask: true);
         },
       ),
+      ElevatedButton(
+        child: Text("Alarm & Reminders"),
+        onPressed: () {
+          AppSettings.openAlarmSettings(asAnotherTask: true);
+        },
+      ),
     ]);
 
     return actionItems;
