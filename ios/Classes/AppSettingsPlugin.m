@@ -10,6 +10,8 @@
 
 @implementation AppSettingsPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftAppSettingsPlugin registerWithRegistrar:registrar];
+    if (registrar) {
+        [SwiftAppSettingsPlugin registerWithRegistrar:registrar];
+    }
 }
 @end
