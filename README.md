@@ -12,7 +12,7 @@ A Flutter plugin for opening iOS and Android phone settings from an app.
 dependencies:
   flutter:
     sdk: flutter
-  app_settings: 4.1.9
+  app_settings: 4.2.0
 ```
 
 Next, import 'app_settings.dart' into your dart code.
@@ -70,7 +70,26 @@ Widget build(BuildContext context) {
     return Row(
         children: <Widget>[
             RaisedButton(
-                onPressed: AppSettings.openLocationSettings,
+                onPressed: AppSettings.openLocationSettings(),
+                child: Text('Open Location Settings'),
+            ),
+        ],
+    );
+}
+```
+
+Example implementation using a raised button 'onPressed' event and custom function callback.  
+
+```dart
+Widget build(BuildContext context) {
+    return Row(
+        children: <Widget>[
+            RaisedButton(
+                onPressed: (() {
+                  AppSettings.openWIFISettings(callback: () {
+                    print("sample callback function called");
+                  });
+                }),
                 child: Text('Open Location Settings'),
             ),
         ],

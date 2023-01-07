@@ -24,5 +24,6 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
   /// Public handler method for managing method channel calls.
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       openSettings()
+      result("Done")
   }
 }
