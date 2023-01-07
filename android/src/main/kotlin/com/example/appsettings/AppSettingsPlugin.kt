@@ -154,5 +154,6 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
             val uri = Uri.fromParts("package", this.activity.packageName, null)
             openSettingsWithCustomIntent(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, uri), asAnotherTask)
         }
+        result.success("Done")
     }
 }

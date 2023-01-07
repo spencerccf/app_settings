@@ -70,7 +70,26 @@ Widget build(BuildContext context) {
     return Row(
         children: <Widget>[
             RaisedButton(
-                onPressed: AppSettings.openLocationSettings,
+                onPressed: AppSettings.openLocationSettings(),
+                child: Text('Open Location Settings'),
+            ),
+        ],
+    );
+}
+```
+
+Example implementation using a raised button 'onPressed' event and custom function callback.  
+
+```dart
+Widget build(BuildContext context) {
+    return Row(
+        children: <Widget>[
+            RaisedButton(
+                onPressed: (() {
+                  AppSettings.openWIFISettings(callback: () {
+                    print("sample callback function called");
+                  });
+                }),
                 child: Text('Open Location Settings'),
             ),
         ],
