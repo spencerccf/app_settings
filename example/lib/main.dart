@@ -57,145 +57,156 @@ class _MyAppState extends State<MyApp> {
       ListTile(
           title: Text('Example Call With Callback'),
           minVerticalPadding: 5.0,
-          onTap: (() {
-            AppSettings.openWIFISettings(callback: () {
-              print("sample callback function called");
+          onTap: (() async {
+            print('Before Calling AppSettings.openWIFISettings()');
+            await AppSettings.openWIFISettings(callback: () {
+              print(
+                  "** Sample callback function called before anything else gets executed in dart");
             });
+            print('After Calling AppSettings.openWIFISettings()');
           })),
       ListTile(
           title: Text('WIFI'),
           minVerticalPadding: 5.0,
-          onTap: (() {
-            AppSettings.openWIFISettings();
+          onTap: (() async {
+            print('Before Calling AppSettings.openWIFISettings()');
+            await AppSettings.openWIFISettings();
+            print('After Calling AppSettings.openWIFISettings()');
           })),
       ListTile(
         title: Text("Location"),
-        onTap: () {
-          AppSettings.openLocationSettings();
+        onTap: () async {
+          await AppSettings.openLocationSettings();
         },
       ),
       ListTile(
         title: Text("Security"),
-        onTap: () {
-          AppSettings.openSecuritySettings();
+        onTap: () async {
+          await AppSettings.openSecuritySettings();
         },
       ),
       ListTile(
         title: Text("Lock & Password"),
-        onTap: () {
-          AppSettings.openLockAndPasswordSettings();
+        onTap: () async {
+          await AppSettings.openLockAndPasswordSettings();
         },
       ),
       ListTile(
         title: Text("App Settings"),
-        onTap: () {
-          AppSettings.openAppSettings();
+        onTap: () async {
+          await AppSettings.openAppSettings();
         },
       ),
       ListTile(
         title: Text("Bluetooth"),
-        onTap: () {
-          AppSettings.openBluetoothSettings();
+        onTap: () async {
+          await AppSettings.openBluetoothSettings();
         },
       ),
       ListTile(
         title: Text("Data Roaming"),
-        onTap: () {
-          AppSettings.openDataRoamingSettings();
+        onTap: () async {
+          await AppSettings.openDataRoamingSettings();
         },
       ),
       ListTile(
         title: Text("Date"),
-        onTap: () {
-          AppSettings.openDateSettings();
+        onTap: () async {
+          await AppSettings.openDateSettings();
         },
       ),
       ListTile(
         title: Text("Display"),
-        onTap: () {
-          AppSettings.openDisplaySettings();
+        onTap: () async {
+          await AppSettings.openDisplaySettings();
         },
       ),
       ListTile(
         title: Text("Notification"),
-        onTap: () {
-          AppSettings.openNotificationSettings();
+        onTap: () async {
+          await AppSettings.openNotificationSettings();
         },
       ),
       ListTile(
         title: Text("Sound"),
-        onTap: () {
-          AppSettings.openSoundSettings();
+        onTap: () async {
+          await AppSettings.openSoundSettings();
         },
       ),
       ListTile(
         title: Text("Internal Storage"),
-        onTap: () {
-          AppSettings.openInternalStorageSettings();
+        onTap: () async {
+          await AppSettings.openInternalStorageSettings();
         },
       ),
       ListTile(
         title: Text("Battery optimization"),
-        onTap: () {
-          AppSettings.openBatteryOptimizationSettings();
+        onTap: () async {
+          await AppSettings.openBatteryOptimizationSettings();
         },
       ),
       ListTile(
         title: Text("NFC"),
-        onTap: () {
-          AppSettings.openNFCSettings();
+        onTap: () async {
+          await AppSettings.openNFCSettings();
         },
       ),
       ListTile(
         title: Text("VPN"),
-        onTap: () {
-          AppSettings.openVPNSettings(
+        onTap: () async {
+          await AppSettings.openVPNSettings(
             asAnotherTask: true,
           );
         },
       ),
       ListTile(
         title: Text("Device Settings"),
-        onTap: () {
-          AppSettings.openDeviceSettings(
+        onTap: () async {
+          await AppSettings.openDeviceSettings(
             asAnotherTask: true,
           );
         },
       ),
       ListTile(
         title: Text("Accessibility"),
-        onTap: () {
-          AppSettings.openAccessibilitySettings(
+        onTap: () async {
+          await AppSettings.openAccessibilitySettings(
             asAnotherTask: true,
           );
         },
       ),
       ListTile(
         title: Text("Developer"),
-        onTap: () {
-          AppSettings.openDevelopmentSettings(
+        onTap: () async {
+          await AppSettings.openDevelopmentSettings(
             asAnotherTask: true,
           );
         },
       ),
       ListTile(
         title: Text("Hotspot"),
-        onTap: () {
-          AppSettings.openHotspotSettings(
+        onTap: () async {
+          await AppSettings.openHotspotSettings(
             asAnotherTask: true,
           );
         },
       ),
       ListTile(
         title: Text("APN"),
-        onTap: () {
-          AppSettings.openAPNSettings(asAnotherTask: true);
+        onTap: () async {
+          await AppSettings.openAPNSettings(asAnotherTask: true);
         },
       ),
       ListTile(
         title: Text("Alarm & Reminders"),
-        onTap: () {
-          AppSettings.openAlarmSettings(asAnotherTask: true);
+        onTap: () async {
+          await AppSettings.openAlarmSettings(asAnotherTask: true);
+        },
+      ),
+      ListTile(
+        title: Text("Subscriptions"),
+        onTap: () async {
+          await AppSettings.openSubscriptionSettings(asAnotherTask: true);
         },
       ),
     ]);

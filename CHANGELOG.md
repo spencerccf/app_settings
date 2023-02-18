@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.2.1
+Adjusting Flutter async result to ensure it fires after initial native side call.
+
 ## 4.2.0
 Ability to provide optional custom callback function within settings request.
 

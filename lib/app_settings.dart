@@ -12,6 +12,7 @@ class AppSettings {
     await _channel.invokeMethod('wifi', {
       'asAnotherTask': asAnotherTask,
     });
+
     if (callback != null) handleCallback(callback);
   }
 
@@ -195,6 +196,13 @@ class AppSettings {
     await _channel.invokeMethod('alarm', {
       'asAnotherTask': asAnotherTask,
     });
+    if (callback != null) handleCallback(callback);
+  }
+
+  /// Future async method call to open Subscription settings.
+  static Future<void> openSubscriptionSettings(
+      {bool asAnotherTask = false, Function? callback}) async {
+    await _channel.invokeMethod('subscriptions');
     if (callback != null) handleCallback(callback);
   }
 

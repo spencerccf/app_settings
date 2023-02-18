@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -22,6 +24,12 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,13 +49,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) App needs access to your location in order to provide accurate emergency information.</string>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
 </dict>
 </plist>
