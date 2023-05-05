@@ -14,89 +14,89 @@ class _MyAppState extends State<MyApp> {
   List<Widget> getActions() {
     return [
       ListTile(
-        title: const Text('WIFI'),
+        title: const Text('Wifi'),
         minVerticalPadding: 5.0,
-        onTap: () => AppSettings.openWifiSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.wifi),
       ),
       ListTile(
         title: const Text("Location"),
-        onTap: () => AppSettings.openLocationSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.location),
       ),
       ListTile(
         title: const Text("Security"),
-        onTap: () => AppSettings.openSecuritySettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.security),
       ),
       ListTile(
         title: const Text("Lock & Password"),
-        onTap: () => AppSettings.openLockAndPasswordSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.lockAndPassword),
       ),
       ListTile(
         title: const Text("App Settings"),
-        onTap: () => AppSettings.openAppSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.settings),
       ),
       ListTile(
         title: const Text("Bluetooth"),
-        onTap: () => AppSettings.openBluetoothSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.bluetooth),
       ),
       ListTile(
         title: const Text("Data Roaming"),
-        onTap: () => AppSettings.openDataRoamingSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.dataRoaming),
       ),
       ListTile(
         title: const Text("Date"),
-        onTap: () => AppSettings.openDateSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.date),
       ),
       ListTile(
         title: const Text("Display"),
-        onTap: () => AppSettings.openDisplaySettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.display),
       ),
       ListTile(
         title: const Text("Notification"),
-        onTap: () => AppSettings.openNotificationSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.notification),
       ),
       ListTile(
         title: const Text("Sound"),
-        onTap: () => AppSettings.openSoundSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.sound),
       ),
       ListTile(
         title: const Text("Internal Storage"),
-        onTap: () => AppSettings.openInternalStorageSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.internalStorage),
       ),
       ListTile(
         title: const Text("Battery optimization"),
-        onTap: () => AppSettings.openBatteryOptimizationSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.batteryOptimization),
       ),
       ListTile(
         title: const Text("NFC"),
-        onTap: () => AppSettings.openNFCSettings(),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.nfc),
       ),
       ListTile(
         title: const Text("VPN"),
-        onTap: () => AppSettings.openVPNSettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.vpn, asAnotherTask: true),
       ),
       ListTile(
         title: const Text("Device Settings"),
-        onTap: () => AppSettings.openDeviceSettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.device, asAnotherTask: true),
       ),
       ListTile(
         title: const Text("Accessibility"),
-        onTap: () => AppSettings.openAccessibilitySettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.accessibility, asAnotherTask: true),
       ),
       ListTile(
         title: const Text("Developer"),
-        onTap: () => AppSettings.openDevelopmentSettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.developer, asAnotherTask: true),
       ),
       ListTile(
         title: const Text("Hotspot"),
-        onTap: () => AppSettings.openHotspotSettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.hotspot, asAnotherTask: true),
       ),
       ListTile(
         title: const Text("APN"),
-        onTap: () => AppSettings.openAPNSettings(asAnotherTask: true),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.apn, asAnotherTask: true),
       ),
       ListTile(
-        title: const Text("Alarm & Reminders"),
-        onTap: () => AppSettings.openAlarmSettings(asAnotherTask: true),
+        title: const Text("Alarms"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.alarm, asAnotherTask: true),
       ),
     ];
   }
