@@ -6,7 +6,7 @@ class AppSettings {
   ///
   /// If [type] is supported, opens a specific app settings panel.
   /// If [asAnotherTask] is true, opens the app settings as another task on Android.
-  Future<void> openAppSettings({
+  static Future<void> openAppSettings({
     AppSettingsType type = AppSettingsType.settings,
     bool asAnotherTask = false,
   }) {
