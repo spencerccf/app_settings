@@ -51,6 +51,9 @@ enum AppSettingsType {
   /// Open the security settings.
   security,
 
+  /// Open the app settings.
+  settings,
+
   /// Open the audio settings.
   sound,
 

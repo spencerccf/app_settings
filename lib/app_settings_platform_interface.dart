@@ -24,7 +24,10 @@ abstract class AppSettingsPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<void> openAppSettings({AppSettingsType? type, bool asAnotherTask = false}) {
+  Future<void> openAppSettings({
+    AppSettingsType type = AppSettingsType.settings,
+    bool asAnotherTask = false,
+  }) {
     throw UnimplementedError('openAppSettings() has not yet been implemented.');
   }
 }
