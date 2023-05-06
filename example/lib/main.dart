@@ -1,221 +1,128 @@
-import 'dart:async';
-
-import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
+import 'package:app_settings/app_settings.dart';
 
-/// Main method to return runApp.
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
-/// This is the main app stateful widget.
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-/// This is the app state.
 class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    /// Call out to intialize platform state.
-    initPlatformState();
-    super.initState();
+  List<Widget> getActions() {
+    return [
+      ListTile(
+        title: const Text('Wifi'),
+        minVerticalPadding: 5.0,
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.wifi),
+      ),
+      ListTile(
+        title: const Text("Location"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.location),
+      ),
+      ListTile(
+        title: const Text("Security"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.security),
+      ),
+      ListTile(
+        title: const Text("Lock & Password"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.lockAndPassword),
+      ),
+      ListTile(
+        title: const Text("App Settings"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.settings),
+      ),
+      ListTile(
+        title: const Text("Bluetooth"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.bluetooth),
+      ),
+      ListTile(
+        title: const Text("Data Roaming"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.dataRoaming),
+      ),
+      ListTile(
+        title: const Text("Date"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.date),
+      ),
+      ListTile(
+        title: const Text("Display"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.display),
+      ),
+      ListTile(
+        title: const Text("Notification"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.notification),
+      ),
+      ListTile(
+        title: const Text("Sound"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.sound),
+      ),
+      ListTile(
+        title: const Text("Internal Storage"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.internalStorage),
+      ),
+      ListTile(
+        title: const Text("Battery optimization"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.batteryOptimization),
+      ),
+      ListTile(
+        title: const Text("NFC"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.nfc),
+      ),
+      ListTile(
+        title: const Text("VPN"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.vpn, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Device Settings"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.device, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Accessibility"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.accessibility, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Developer"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.developer, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Hotspot"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.hotspot, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("APN"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.apn, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Alarms"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.alarm, asAnotherTask: true),
+      ),
+      ListTile(
+        title: const Text("Subscriptions"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.subscriptions, asAnotherTask: true),
+      ),
+    ];
   }
 
-  /// Initialize platform state.
-  Future<void> initPlatformState() async {
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-  }
-
-  /// Widget build method to return MaterailApp.
   @override
   Widget build(BuildContext context) {
-    var actionItems = getListOfActionButtons();
+    final actionItems = getActions();
+
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-              title: const Text('App Settings Example App'),
-            ),
-            body: ListView.separated(
-              separatorBuilder: (context, index) => Divider(
-                color: Colors.blueGrey,
-              ),
-              itemCount: actionItems.length,
-              itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.all(2.0),
-                child: actionItems[index],
-              ),
-            )));
-  }
-
-  List<Widget> getListOfActionButtons() {
-    var actionItems = <Widget>[];
-
-    actionItems.addAll([
-      ListTile(
-          title: Text('Example Call With Callback'),
-          minVerticalPadding: 5.0,
-          onTap: (() async {
-            print('Before Calling AppSettings.openWIFISettings()');
-            await AppSettings.openWIFISettings(callback: () {
-              print(
-                  "** Sample callback function called before anything else gets executed in dart");
-            });
-            print('After Calling AppSettings.openWIFISettings()');
-          })),
-      ListTile(
-          title: Text('WIFI'),
-          minVerticalPadding: 5.0,
-          onTap: (() async {
-            print('Before Calling AppSettings.openWIFISettings()');
-            await AppSettings.openWIFISettings();
-            print('After Calling AppSettings.openWIFISettings()');
-          })),
-      ListTile(
-        title: Text("Location"),
-        onTap: () async {
-          await AppSettings.openLocationSettings();
-        },
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('App Settings Example App'),
+        ),
+        body: ListView.separated(
+          separatorBuilder: (_, index) => const Divider(color: Colors.blueGrey),
+          itemCount: actionItems.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: actionItems[index],
+          ),
+        ),
       ),
-      ListTile(
-        title: Text("Security"),
-        onTap: () async {
-          await AppSettings.openSecuritySettings();
-        },
-      ),
-      ListTile(
-        title: Text("Lock & Password"),
-        onTap: () async {
-          await AppSettings.openLockAndPasswordSettings();
-        },
-      ),
-      ListTile(
-        title: Text("App Settings"),
-        onTap: () async {
-          await AppSettings.openAppSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Bluetooth"),
-        onTap: () async {
-          await AppSettings.openBluetoothSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Data Roaming"),
-        onTap: () async {
-          await AppSettings.openDataRoamingSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Date"),
-        onTap: () async {
-          await AppSettings.openDateSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Display"),
-        onTap: () async {
-          await AppSettings.openDisplaySettings();
-        },
-      ),
-      ListTile(
-        title: Text("Notification"),
-        onTap: () async {
-          await AppSettings.openNotificationSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Sound"),
-        onTap: () async {
-          await AppSettings.openSoundSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Internal Storage"),
-        onTap: () async {
-          await AppSettings.openInternalStorageSettings();
-        },
-      ),
-      ListTile(
-        title: Text("Battery optimization"),
-        onTap: () async {
-          await AppSettings.openBatteryOptimizationSettings();
-        },
-      ),
-      ListTile(
-        title: Text("NFC"),
-        onTap: () async {
-          await AppSettings.openNFCSettings();
-        },
-      ),
-      ListTile(
-        title: Text("VPN"),
-        onTap: () async {
-          await AppSettings.openVPNSettings(
-            asAnotherTask: true,
-          );
-        },
-      ),
-      ListTile(
-        title: Text("Device Settings"),
-        onTap: () async {
-          await AppSettings.openDeviceSettings(
-            asAnotherTask: true,
-          );
-        },
-      ),
-      ListTile(
-        title: Text("Accessibility"),
-        onTap: () async {
-          await AppSettings.openAccessibilitySettings(
-            asAnotherTask: true,
-          );
-        },
-      ),
-      ListTile(
-        title: Text("Developer"),
-        onTap: () async {
-          await AppSettings.openDevelopmentSettings(
-            asAnotherTask: true,
-          );
-        },
-      ),
-      ListTile(
-        title: Text("Hotspot"),
-        onTap: () async {
-          await AppSettings.openHotspotSettings(
-            asAnotherTask: true,
-          );
-        },
-      ),
-      ListTile(
-        title: Text("APN"),
-        onTap: () async {
-          await AppSettings.openAPNSettings(asAnotherTask: true);
-        },
-      ),
-      ListTile(
-        title: Text("Alarm & Reminders"),
-        onTap: () async {
-          await AppSettings.openAlarmSettings(asAnotherTask: true);
-        },
-      ),
-      ListTile(
-        title: Text("Subscriptions"),
-        onTap: () async {
-          await AppSettings.openSubscriptionSettings(asAnotherTask: true);
-        },
-      ),
-    ]);
-    return actionItems;
-  }
-
-  /// Dispose method to close out and cleanup objects.
-  @override
-  void dispose() {
-    super.dispose();
+    );
   }
 }
