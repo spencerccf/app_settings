@@ -98,6 +98,10 @@ class _MyAppState extends State<MyApp> {
         title: const Text("Alarms"),
         onTap: () => AppSettings.openAppSettings(type: AppSettingsType.alarm, asAnotherTask: true),
       ),
+      ListTile(
+        title: const Text("Subscriptions"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.subscriptions, asAnotherTask: true),
+      ),
     ];
   }
 

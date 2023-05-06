@@ -21,6 +21,9 @@ The permission requirement for Android Bluetooth settings (`Settings.ACTION_BLUE
 has been removed, as it works as intended without Bluetooth permissions
 on both Android 10 and lower and Android 11 and higher.
 
+## 4.2.1
+Adjusting Flutter async result to ensure it fires after initial native side call.
+
 ## 4.2.0
 Ability to provide optional custom callback function within settings request.
 

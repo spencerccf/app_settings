@@ -93,6 +93,11 @@ enum AppSettingsType {
   /// Only supported on Android.
   sound,
 
+  /// Open the subscription settings.
+  ///
+  /// Only supported on iOS 15+.
+  subscriptions,
+
   /// Open the VPN settings.
   ///
   /// Only supported on Android.

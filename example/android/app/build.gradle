@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace 'com.spencerccf.app_settings_example'
+    namespace 'com.example.appsettingsexample'
     compileSdkVersion 33
 
     compileOptions {
