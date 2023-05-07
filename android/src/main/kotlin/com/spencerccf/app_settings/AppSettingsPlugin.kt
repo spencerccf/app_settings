@@ -28,7 +28,7 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "app_settings")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "com.spencerccf.app_settings/methods")
     channel.setMethodCallHandler(this)
   }
 
