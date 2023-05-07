@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 4.3.1
+Fix bug with iOS subscription settings not awaiting the Task result.
+
 ## 4.3.0
 **BREAKING CHANGES**
 - The `openAppSettings()` method now accepts a single settings type. This replaces the various individual methods.
