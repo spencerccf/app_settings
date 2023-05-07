@@ -41,15 +41,17 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin, UIWindowSceneDelegate {
                     
                     if(windowScene != nil) {
                         await openSubscriptionSettings(windowScene!)
-                        result(nil)
-                        return
+                    } else {
+                        openSettings(settingsUrl: UIApplication.openSettingsURLString)
                     }
+                    
+                    result(nil)
                 }
+            } else {
+                // Show the default settings as fallback.
+                openSettings(settingsUrl: UIApplication.openSettingsURLString)
+                result(nil)
             }
-            
-            // Show the default settings as fallback.
-            openSettings(settingsUrl: UIApplication.openSettingsURLString)
-            result(nil)
             break
         default:
             // Show the default settings as fallback.
