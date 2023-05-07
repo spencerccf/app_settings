@@ -26,12 +26,13 @@ target 'Runner' do
   use_frameworks!
 ```
 
-### Android
-Each option will open and display the exact corresponding system settings screen: WIFI, Location, or Security, etc.
+## Usage
 
-Using the `AppSettingsType.settings` option will open the general app settings.
+Open the settings of the application using `AppSettings.openAppSettings()`.
+By default, `AppSettingsType.settings` is used as the type, which opens the general application settings.
+If the given type is not supported on the current platform, the general settings are opened instead.
 
-## Example
+**Android** If `asAnotherTask` is set to true, the settings page is opened in a different Activity.
 
 ```dart
 Widget build(BuildContext context) {
@@ -41,3 +42,19 @@ Widget build(BuildContext context) {
   );
 }
 ```
+
+### Android Q Settings Panels
+
+To open a Settings Panel on Android Q and higher,
+call `AppSettings.openAppSettingsPanel()` with a given type.
+
+```dart
+Widget build(BuildContext context) {
+  return ElevatedButton(
+    onPressed: () => AppSettings.openAppSettingsPanel(AppSettingsPanelType.volume),
+    child: const Text('Open Volume Settings Panel'),
+  );
+}
+```
+
+Settings panels are not supported on other platforms.
