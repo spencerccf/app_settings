@@ -35,6 +35,7 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   override fun onMethodCall(call: MethodCall, result: Result) {
     when(call.method) {
       "openSettings" -> handleOpenSettings(call, result)
+      "openSettingsPanel" -> handleOpenSettingsPanel(call, result)
       else -> result.notImplemented()
     }
   }
@@ -101,6 +102,40 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       "wifi" -> openSettings(Settings.ACTION_WIFI_SETTINGS, result, asAnotherTask)
       "wireless" -> openSettings(Settings.ACTION_WIRELESS_SETTINGS, result, asAnotherTask)
       else -> result.notImplemented()
+    }
+  }
+
+  /**
+   * Handle the 'openSettingsPanel' method call.
+   */
+  private fun handleOpenSettingsPanel(call: MethodCall, result: Result) {
+    if(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+      result.success(null)
+      return
+    }
+
+    this.activity?.let {
+      when(call.argument<String>("type")) {
+        "internetConnectivity" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY))
+          result.success(null)
+        }
+        "nfc" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_NFC))
+          result.success(null)
+        }
+        "volume" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_VOLUME))
+          result.success(null)
+        }
+        "wifi" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_WIFI))
+          result.success(null)
+        }
+        else -> result.notImplemented()
+      }
+    } ?: run {
+      result.success(null)
     }
   }
 
