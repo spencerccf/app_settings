@@ -15,6 +15,9 @@ class MethodChannelAppSettings extends AppSettingsPlatform {
     AppSettingsType type = AppSettingsType.settings,
     bool asAnotherTask = false,
   }) {
-    return methodChannel.invokeMethod<void>(type.name, {'asAnotherTask': asAnotherTask});
+    return methodChannel.invokeMethod<void>('openSettings', {
+      'asAnotherTask': asAnotherTask,
+      'type': type.name,
+    });
   }
 }

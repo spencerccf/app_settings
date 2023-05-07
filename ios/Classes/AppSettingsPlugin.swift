@@ -11,6 +11,21 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin, UIWindowSceneDelegate {
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch(call.method) {
+        case "openSettings":
+            handleOpenSettings(call: call, result: result)
+            break
+        default:
+            result(FlutterMethodNotImplemented)
+            break
+        }
+    }
+    
+    /// Handle the 'openSettings' method call.
+    private func handleOpenSettings(call: FlutterMethodCall, result: @escaping FlutterResult) {
+        let arguments = call.arguments as! Dictionary<String, Any?>
+        let type = arguments["type"] as! String
+
+        switch(type) {
         case "notification":
             if #available(iOS 16.0, *) {
                 openSettings(settingsUrl: UIApplication.openNotificationSettingsURLString)

@@ -33,9 +33,39 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
+    when(call.method) {
+      "openSettings" -> handleOpenSettings(call, result)
+      else -> result.notImplemented()
+    }
+  }
+
+  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    channel.setMethodCallHandler(null)
+  }
+
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+    this.activity = binding.activity
+  }
+
+  override fun onDetachedFromActivityForConfigChanges() {
+    this.activity = null
+  }
+
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+    this.activity = binding.activity
+  }
+
+  override fun onDetachedFromActivity() {
+    this.activity = null
+  }
+
+  /**
+   * Handle the 'openSettings' method call.
+   */
+  private fun handleOpenSettings(call: MethodCall, result: Result) {
     val asAnotherTask = call.argument<Boolean>("asAnotherTask") ?: false
 
-    when(call.method) {
+    when(call.argument<String>("type")) {
       "accessibility" -> openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, result, asAnotherTask)
       "alarm" -> openAlarmSettings(result, asAnotherTask)
       "apn" -> openSettings(Settings.ACTION_APN_SETTINGS, result, asAnotherTask)
@@ -72,26 +102,6 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       "wireless" -> openSettings(Settings.ACTION_WIRELESS_SETTINGS, result, asAnotherTask)
       else -> result.notImplemented()
     }
-  }
-
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
-
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
-
-  override fun onDetachedFromActivityForConfigChanges() {
-    this.activity = null
-  }
-
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
-
-  override fun onDetachedFromActivity() {
-    this.activity = null
   }
 
   /**
