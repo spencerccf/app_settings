@@ -20,4 +20,11 @@ class MethodChannelAppSettings extends AppSettingsPlatform {
       'type': type.name,
     });
   }
+
+  @override
+  Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
+    return methodChannel.invokeMethod<void>('openSettingsPanel', {
+      'type': type.name,
+    });
+  }
 }
