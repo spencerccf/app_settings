@@ -28,14 +28,45 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "app_settings")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "com.spencerccf.app_settings/methods")
     channel.setMethodCallHandler(this)
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
+    when(call.method) {
+      "openSettings" -> handleOpenSettings(call, result)
+      "openSettingsPanel" -> handleOpenSettingsPanel(call, result)
+      else -> result.notImplemented()
+    }
+  }
+
+  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    channel.setMethodCallHandler(null)
+  }
+
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+    this.activity = binding.activity
+  }
+
+  override fun onDetachedFromActivityForConfigChanges() {
+    this.activity = null
+  }
+
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+    this.activity = binding.activity
+  }
+
+  override fun onDetachedFromActivity() {
+    this.activity = null
+  }
+
+  /**
+   * Handle the 'openSettings' method call.
+   */
+  private fun handleOpenSettings(call: MethodCall, result: Result) {
     val asAnotherTask = call.argument<Boolean>("asAnotherTask") ?: false
 
-    when(call.method) {
+    when(call.argument<String>("type")) {
       "accessibility" -> openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, result, asAnotherTask)
       "alarm" -> openAlarmSettings(result, asAnotherTask)
       "apn" -> openSettings(Settings.ACTION_APN_SETTINGS, result, asAnotherTask)
@@ -74,24 +105,38 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     }
   }
 
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
+  /**
+   * Handle the 'openSettingsPanel' method call.
+   */
+  private fun handleOpenSettingsPanel(call: MethodCall, result: Result) {
+    if(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+      result.success(null)
+      return
+    }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
-
-  override fun onDetachedFromActivityForConfigChanges() {
-    this.activity = null
-  }
-
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
-
-  override fun onDetachedFromActivity() {
-    this.activity = null
+    this.activity?.let {
+      when(call.argument<String>("type")) {
+        "internetConnectivity" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY))
+          result.success(null)
+        }
+        "nfc" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_NFC))
+          result.success(null)
+        }
+        "volume" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_VOLUME))
+          result.success(null)
+        }
+        "wifi" -> {
+          it.startActivity(Intent(Settings.Panel.ACTION_WIFI))
+          result.success(null)
+        }
+        else -> result.notImplemented()
+      }
+    } ?: run {
+      result.success(null)
+    }
   }
 
   /**

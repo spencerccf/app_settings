@@ -1,6 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'app_settings_method_channel.dart';
+import 'src/app_settings_panel_type.dart';
 import 'src/app_settings_type.dart';
 
 abstract class AppSettingsPlatform extends PlatformInterface {
@@ -29,5 +30,9 @@ abstract class AppSettingsPlatform extends PlatformInterface {
     bool asAnotherTask = false,
   }) {
     throw UnimplementedError('openAppSettings() has not yet been implemented.');
+  }
+
+  Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
+    throw UnimplementedError('openAppSettingsPanel() has not yet been implemented.');
   }
 }

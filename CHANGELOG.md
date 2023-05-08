@@ -11,15 +11,17 @@ Each option will open and display the corresponding screen: WIFI, Location, or S
 **BREAKING CHANGES**
 - The `openAppSettings()` method now accepts a single settings type. This replaces the various individual methods.
 - The `callback` argument has been removed. Instead, await `openAppSettings()`.
-- Flutter 3.3 is now required
+- Flutter 3.7 is now required
 
 Update to the new plugin template, using the platform interface.
 Fix typo in application identifier
 Bump Android SDK version to 33
+Add the `namespace` property to the build.gradle for compatibility with Gradle 8
 Support notification settings on iOS 16
 The permission requirement for Android Bluetooth settings (`Settings.ACTION_BLUETOOTH_SETTINGS`)
 has been removed, as it works as intended without Bluetooth permissions
 on both Android 10 and lower and Android 11 and higher.
+Added Android Q Settings Panel support.
 
 ## 4.2.1
 Adjusting Flutter async result to ensure it fires after initial native side call.

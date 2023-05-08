@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> getActions() {
+  List<Widget> getOpenAppSettingsActions() {
     return [
       ListTile(
         title: const Text('Wifi'),
@@ -105,22 +105,65 @@ class _MyAppState extends State<MyApp> {
     ];
   }
 
+  List<Widget> getOpenAppSettingsPanelActions() {
+    return [
+      ListTile(
+        title: const Text('Wifi'),
+        minVerticalPadding: 5.0,
+        onTap: () => AppSettings.openAppSettingsPanel(AppSettingsPanelType.wifi),
+      ),
+      ListTile(
+        title: const Text('NFC'),
+        onTap: () => AppSettings.openAppSettingsPanel(AppSettingsPanelType.nfc),
+      ),
+      ListTile(
+        title: const Text('Internet connectivity'),
+        onTap: () => AppSettings.openAppSettingsPanel(AppSettingsPanelType.internetConnectivity),
+      ),
+      ListTile(
+        title: const Text('Volume'),
+        onTap: () => AppSettings.openAppSettingsPanel(AppSettingsPanelType.volume),
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final actionItems = getActions();
+    final appSettingsActions = getOpenAppSettingsActions();
+    final appSettingsPanelActions = getOpenAppSettingsPanelActions();
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('App Settings Example App'),
         ),
-        body: ListView.separated(
-          separatorBuilder: (_, index) => const Divider(color: Colors.blueGrey),
-          itemCount: actionItems.length,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: actionItems[index],
-          ),
+        body: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'openAppSettings() options',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate.fixed(appSettingsActions),
+            ),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'openAppSettingsPanel() options',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate.fixed(appSettingsPanelActions),
+            ),
+          ],
         ),
       ),
     );

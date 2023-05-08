@@ -4,13 +4,28 @@ import StoreKit
 
 public class AppSettingsPlugin: NSObject, FlutterPlugin, UIWindowSceneDelegate {
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "app_settings", binaryMessenger: registrar.messenger())
+        let channel = FlutterMethodChannel(name: "com.spencerccf.app_settings/methods", binaryMessenger: registrar.messenger())
         let instance = AppSettingsPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch(call.method) {
+        case "openSettings":
+            handleOpenSettings(call: call, result: result)
+            break
+        default:
+            result(FlutterMethodNotImplemented)
+            break
+        }
+    }
+    
+    /// Handle the 'openSettings' method call.
+    private func handleOpenSettings(call: FlutterMethodCall, result: @escaping FlutterResult) {
+        let arguments = call.arguments as! Dictionary<String, Any?>
+        let type = arguments["type"] as! String
+
+        switch(type) {
         case "notification":
             if #available(iOS 16.0, *) {
                 openSettings(settingsUrl: UIApplication.openNotificationSettingsURLString)
@@ -26,15 +41,17 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin, UIWindowSceneDelegate {
                     
                     if(windowScene != nil) {
                         await openSubscriptionSettings(windowScene!)
-                        result(nil)
-                        return
+                    } else {
+                        openSettings(settingsUrl: UIApplication.openSettingsURLString)
                     }
+                    
+                    result(nil)
                 }
+            } else {
+                // Show the default settings as fallback.
+                openSettings(settingsUrl: UIApplication.openSettingsURLString)
+                result(nil)
             }
-            
-            // Show the default settings as fallback.
-            openSettings(settingsUrl: UIApplication.openSettingsURLString)
-            result(nil)
             break
         default:
             // Show the default settings as fallback.

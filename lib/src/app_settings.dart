@@ -12,4 +12,14 @@ class AppSettings {
   }) {
     return AppSettingsPlatform.instance.openAppSettings(type: type, asAnotherTask: asAnotherTask);
   }
+
+  /// Open an application settings panel.
+  ///
+  /// App Settings Panels are only supported on Android.
+  ///
+  /// This method does nothing on Android Pie and lower,
+  /// as settings panels are only available from Android Q onwards.
+  static Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
+    return AppSettingsPlatform.instance.openAppSettingsPanel(type);
+  }
 }
