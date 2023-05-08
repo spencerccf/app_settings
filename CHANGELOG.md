@@ -12,11 +12,11 @@ Each option will open and display the corresponding screen: WIFI, Location, or S
 - The `openAppSettings()` method now accepts a single settings type. This replaces the various individual methods.
 - The `callback` argument has been removed. Instead, await `openAppSettings()`.
 - Flutter 3.7 is now required
-- Gradle 8 is now required and the `namespace` attribute should be removed from the Android Manifest
 
 Update to the new plugin template, using the platform interface.
 Fix typo in application identifier
 Bump Android SDK version to 33
+Add the `namespace` property to the build.gradle for compatibility with Gradle 8
 Support notification settings on iOS 16
 The permission requirement for Android Bluetooth settings (`Settings.ACTION_BLUETOOTH_SETTINGS`)
 has been removed, as it works as intended without Bluetooth permissions
