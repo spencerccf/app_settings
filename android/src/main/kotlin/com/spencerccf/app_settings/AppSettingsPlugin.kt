@@ -70,7 +70,7 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       "accessibility" -> openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, result, asAnotherTask)
       "alarm" -> openAlarmSettings(result, asAnotherTask)
       "apn" -> openSettings(Settings.ACTION_APN_SETTINGS, result, asAnotherTask)
-      "appLocale" -> openSettings(ACTION_APP_LOCALE_SETTINGS, result, asAnotherTask)
+      "appLocale" -> openSettings(Settings.ACTION_APP_LOCALE_SETTINGS, result, asAnotherTask)
       "batteryOptimization" -> openBatteryOptimizationSettings(result, asAnotherTask)
       "bluetooth" -> openSettings(Settings.ACTION_BLUETOOTH_SETTINGS, result, asAnotherTask)
       "dataRoaming" -> openSettings(Settings.ACTION_DATA_ROAMING_SETTINGS, result, asAnotherTask)
