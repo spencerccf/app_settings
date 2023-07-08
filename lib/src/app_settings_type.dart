@@ -15,7 +15,7 @@ enum AppSettingsType {
   /// Only supported on Android.
   apn,
 
-  /// Open the App's preferred locale settings.
+  /// Open the app's preferred locale settings.
   ///
   /// Only supported on Android.
   appLocale,
