@@ -15,6 +15,18 @@ enum AppSettingsType {
   /// Only supported on Android.
   apn,
 
+  /// Open the app's preferred locale settings.
+  ///
+  /// Important: Will throw if the following is not true:
+  ///
+  /// This setting is only available on Android 13+,
+  /// solely for apps that are configured for per-app language preferences.
+  ///
+  /// See also:
+  /// https://developer.android.com/guide/topics/resources/app-languages#use-localeconfig
+  /// https://github.com/flutter/flutter/issues/109842#issuecomment-1500072797
+  appLocale,
+
   /// Open the Battery Optimization settings.
   ///
   /// Only supported on Android.
