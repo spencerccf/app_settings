@@ -70,7 +70,6 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       "accessibility" -> openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, result, asAnotherTask)
       "alarm" -> openAlarmSettings(result, asAnotherTask)
       "apn" -> openSettings(Settings.ACTION_APN_SETTINGS, result, asAnotherTask)
-      "appLocale" -> openAppLocaleSettings(result, asAnotherTask)
       "batteryOptimization" -> openBatteryOptimizationSettings(result, asAnotherTask)
       "bluetooth" -> openSettings(Settings.ACTION_BLUETOOTH_SETTINGS, result, asAnotherTask)
       "dataRoaming" -> openSettings(Settings.ACTION_DATA_ROAMING_SETTINGS, result, asAnotherTask)
@@ -145,23 +144,6 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
    */
   private fun openAppSettings(result: Result, asAnotherTask: Boolean = false) {
     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-    if (asAnotherTask) {
-      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    }
-
-    this.activity?.let {
-      intent.data = Uri.fromParts("package", it.packageName, null)
-      it.startActivity(intent)
-    }
-
-    result.success(null)
-  }
-
-  /**
-   * Open the application's preferred locale settings.
-   */
-  private fun openAppLocaleSettings(result: Result, asAnotherTask: Boolean = false) {
-    val intent = Intent(Settings.ACTION_APP_LOCALE_SETTINGS)
     if (asAnotherTask) {
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
