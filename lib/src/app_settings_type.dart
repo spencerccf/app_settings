@@ -17,13 +17,9 @@ enum AppSettingsType {
 
   /// Open the app language settings.
   ///
-  /// Important: Will throw if the following is not true:
+  /// This setting is only available on Android 13+.
   ///
-  /// This setting is only available on Android 13+,
-  /// solely for apps that are configured for per-app language preferences.
-  ///
-  /// See also:
-  /// https://developer.android.com/guide/topics/resources/app-languages#use-localeconfig
+  /// For configuring per-app language preferences for your app, see also:
   /// https://github.com/flutter/flutter/issues/109842#issuecomment-1500072797
   appLocale,
 
