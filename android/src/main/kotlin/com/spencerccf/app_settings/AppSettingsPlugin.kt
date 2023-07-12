@@ -161,6 +161,12 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
    * Open the application's preferred locale settings.
    */
   private fun openAppLocaleSettings(result: Result, asAnotherTask: Boolean = false) {
+    // Only available on Android 13+
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+      result.success(null)
+      return
+    }
+
     val intent = Intent(Settings.ACTION_APP_LOCALE_SETTINGS)
     if (asAnotherTask) {
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
