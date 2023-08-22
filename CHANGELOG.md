@@ -1,5 +1,5 @@
 
-## 5.0.1
+## 5.1.1
 
 - Fixed a build issue on iOS for the example app.
 
