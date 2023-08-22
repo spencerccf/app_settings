@@ -7,6 +7,9 @@ All three options open the current 'app' settings section if there are settings 
 ### Android
 Each option will open and display the corresponding screen: WIFI, Location, or Security, etc.
 
+## 5.1.0
+Add `AppSettingsType.appLocale` to open the app language settings (only available on Android 13 and higher).
+
 ## 5.0.0
 **BREAKING CHANGES**
 - The `openAppSettings()` method now accepts a single settings type. This replaces the various individual methods.
