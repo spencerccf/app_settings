@@ -3,6 +3,9 @@
 
 - Fixed a build issue on iOS for the example app.
 
+## 5.1.0
+Add `AppSettingsType.appLocale` to open the app language settings (only available on Android 13 and higher).
+
 ## 5.0.0
 
 - **BREAKING CHANGES**
