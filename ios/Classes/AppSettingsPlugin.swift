@@ -62,7 +62,11 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin, UIWindowSceneDelegate {
     }
     
     private func openSettings(settingsUrl: String) {
-        if let url = URL(string: settingsUrl) {
+        guard let url = URL(string: settingsUrl) else {
+            return
+        }
+        
+        if (UIApplication.shared.canOpenURL(url)) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
