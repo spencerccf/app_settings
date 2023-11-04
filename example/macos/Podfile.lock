@@ -1,5 +1,5 @@
 PODS:
-  - app_settings (0.0.1):
+  - app_settings (5.1.1):
     - FlutterMacOS
   - FlutterMacOS (1.0.0)
 
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
 
 SPEC CHECKSUMS:
-  app_settings: a1c93b7e416cf3b6b44c34cc7003c6b70fa158ad
+  app_settings: 5947582424ca323cb28382631e7df2ec99a33992
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
 
 PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
