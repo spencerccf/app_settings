@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.description      = 'A Flutter plugin for opening macOS desktop settings from an app.'
   s.homepage         = 'https://github.com/spencerccf/app_settings'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'ask.melnyk@gmail.com' => 'ask.melnyk@gmail.com' }
+  s.author           = { 'spencerccf@gmail.com' => 'spencerccf@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'FlutterMacOS'
