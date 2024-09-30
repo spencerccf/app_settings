@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0.1'
+  s.resource_bundles = {'app_settings_privacy' => ['PrivacyInfo.xcprivacy']}
 end
