@@ -1,3 +1,6 @@
+## 5.2.0
+
+- Add Swift Package Manager support.
 
 ## 5.1.1
 
