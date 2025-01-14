@@ -47,3 +47,8 @@ app.*.map.json
 .gradle/
 gradlew
 gradlew.bat
+
+# FVM Version Cache
+.fvm/
+.fvmrc
+.vscode/
