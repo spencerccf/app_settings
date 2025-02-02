@@ -11,12 +11,12 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'spencerccf@gmail.com' => 'spencerccf@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'app_settings/Sources/app_settings/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0.1'
-  s.resource_bundles = {'app_settings_privacy' => ['PrivacyInfo.xcprivacy']}
+  s.resource_bundles = {'app_settings_privacy' => ['app_settings/Sources/app_settings/PrivacyInfo.xcprivacy']}
 end

@@ -4,6 +4,11 @@
 
 A Flutter plugin for opening iOS and Android phone settings from an app.
 
+## Features
+
+- Supports **Swift Package Manager (SPM)** for iOS integration.
+- Opens various settings pages (e.g., location, Wi-Fi, etc.) for both Android and iOS.
+
 ## Installation
 
 First, add `app_settings` as a [dependency in your pubspec.yaml file](https://pub.dev/packages/app_settings).
@@ -12,19 +17,29 @@ First, add `app_settings` as a [dependency in your pubspec.yaml file](https://pu
 flutter pub add app_settings
 ```
 
-Next, import 'app_settings.dart' into your dart code.
+Next, import 'app_settings.dart' into your Dart code.
 
 ```dart
 import 'package:app_settings/app_settings.dart';
 ```
 
 ### iOS
-  ***TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
+
+***TIP: If using Objective-C for iOS in your project, you will need to add `use_frameworks!` to your `Runner project podfile` in order to use this Swift plugin:***
 
 ```pod
 target 'Runner' do
   use_frameworks!
 ```
+
+If you prefer using **Swift Package Manager (SPM)**, make sure to enable swift support in your project.
+See also [Flutter SPM integration](https://docs.flutter.dev/packages-and-plugins/swift-package-manager/for-app-developers).
+
+```sh
+  flutter config --enable-swift-package-manager 
+```
+
+
 
 ## Usage
 
