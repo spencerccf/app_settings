@@ -1,3 +1,6 @@
+## 5.3.0
+-  Added openAppSettings() to access platform specific 'camera' settings (Only MacOS) . 
+
 ## 5.2.0
 
 - Add Swift Package Manager support.
