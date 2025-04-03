@@ -31,6 +31,10 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin {
             openSettings(settingsUrl: SettingsGeneral.notifications.rawValue)
             result(nil)
             break
+        case "camera":
+            openSettings(settingsUrl: SettingsGeneral.camera.rawValue)
+            result(nil)
+            break
         default:
             // Show the default settings as fallback.
             openSettings(settingsUrl: SettingsGeneral.preference.rawValue)

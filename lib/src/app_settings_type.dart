@@ -125,4 +125,8 @@ enum AppSettingsType {
   ///
   /// Only supported on Android.
   wireless,
+
+  /// Only supported on MacOS
+  camera,
+
 }
