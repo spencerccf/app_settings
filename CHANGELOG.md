@@ -1,3 +1,13 @@
+## 6.1.0
+-  Added openAppSettings() to access platform specific 'camera' settings (Only MacOS) . 
+
+=======
+## 6.0.0
+
+- Fİx for AppSettingsPlugin.swift:5:43, Attribute can only be applied to declarations, not types issue #232
+- Upgraded gradle from 7.5 to 8.2
+  
+
 ## 5.2.0
 
 - Add Swift Package Manager support.

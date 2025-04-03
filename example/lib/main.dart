@@ -125,6 +125,10 @@ class _MyAppState extends State<MyApp> {
         onTap: () => AppSettings.openAppSettings(
             type: AppSettingsType.subscriptions, asAnotherTask: true),
       ),
+      ListTile(
+        title: const Text("Camera"),
+        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.camera, asAnotherTask: true),
+      ),
     ];
   }
 
