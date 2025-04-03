@@ -1,5 +1,5 @@
 ## 6.1.1
-- Users can request permision to install apps
+- Users can request permission to install apps
   
 ## 6.1.0
 -  Added openAppSettings() to access platform specific 'camera' settings (Only MacOS) . 
