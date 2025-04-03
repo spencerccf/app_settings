@@ -95,6 +95,7 @@ class AppSettingsPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         result,
         asAnotherTask,
       )
+      "manageUnknownAppSources" -> openSettings(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, result, asAnotherTask)
       "nfc" -> openSettings(Settings.ACTION_NFC_SETTINGS, result, asAnotherTask)
       "notification" -> openNotificationSettings(result, asAnotherTask)
       "security" -> openSettings(Settings.ACTION_SECURITY_SETTINGS, result, asAnotherTask)
