@@ -1,6 +1,8 @@
 name: app_settings
 description: A Flutter plugin for opening iOS and Android phone settings from an app.
-version: 5.3.0
+
+version: 6.1.0
+
 homepage: https://github.com/spencerccf/app_settings
 
 environment:
