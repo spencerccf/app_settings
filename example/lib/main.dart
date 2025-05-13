@@ -102,11 +102,16 @@ class _MyAppState extends State<MyApp> {
         title: const Text("Subscriptions"),
         onTap: () => AppSettings.openAppSettings(type: AppSettingsType.subscriptions, asAnotherTask: true),
       ),
-      ListTile(
-        title: const Text("Camera"),
-        onTap: () => AppSettings.openAppSettings(type: AppSettingsType.camera, asAnotherTask: true),
-      ),
     ];
+  }
+
+  List<Widget> getOpenPrivacyActions() {
+    return PrivacyType.values.map((type) {
+      return ListTile(
+        title: Text(type.name),
+        onTap: () => AppSettings.openPrivateSecurity(type),
+      );
+    }).toList();
   }
 
   List<Widget> getOpenAppSettingsPanelActions() {
@@ -135,6 +140,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final appSettingsActions = getOpenAppSettingsActions();
     final appSettingsPanelActions = getOpenAppSettingsPanelActions();
+    final getPrivacyActions =  getOpenPrivacyActions();
 
     return MaterialApp(
       home: Scaffold(
@@ -154,6 +160,18 @@ class _MyAppState extends State<MyApp> {
             ),
             SliverList(
               delegate: SliverChildListDelegate.fixed(appSettingsActions),
+            ),
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'getPrivacyActions() options',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate.fixed(getPrivacyActions),
             ),
             const SliverToBoxAdapter(
               child: Padding(

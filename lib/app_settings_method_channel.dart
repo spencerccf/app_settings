@@ -27,4 +27,11 @@ class MethodChannelAppSettings extends AppSettingsPlatform {
       'type': type.name,
     });
   }
+
+  @override
+  Future<void> openPrivacySecuritySession(PrivacyType type) {
+    return methodChannel.invokeMethod<void>('openPrivacySecuritySession', {
+      'type': type.getRawValue(),
+    });
+  }
 }

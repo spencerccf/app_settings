@@ -15,6 +15,9 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin {
         case "openSettings":
             handleOpenSettings(call: call, result: result)
             break
+        case "openPrivacySecuritySession":
+            handlePrivateSecuritySession(call: call, result: result)
+            break
         default:
             result(FlutterMethodNotImplemented)
             break
@@ -42,6 +45,25 @@ public class AppSettingsPlugin: NSObject, FlutterPlugin {
             break
         }
     }
+
+       private func handlePrivateSecuritySession(call: FlutterMethodCall, result: @escaping FlutterResult) {
+            let arguments = call.arguments as! Dictionary<String, Any?>
+            let type = arguments["type"] as! String
+            let privacyType = PrivacyType(rawValue: type)
+            print("Opening settings for privacy type: \(type)  \(privacyType)")
+           if let privacyType = privacyType {
+                // Open the specific privacy settings URL.
+                print("Opening settings for privacy type: \(privacyType)")
+               openSettings(settingsUrl: privacyType.url())
+           }
+            else{
+                // Show the default settings as fallback.
+//                openSettings(settingsUrl: UIApplication.openSettingsURLString)
+ print("Opening ")
+                result(nil)
+            }
+        }
+
 
     private func openSettings(settingsUrl: String) {
         guard let url = URL(string: settingsUrl) else {

@@ -126,7 +126,71 @@ enum AppSettingsType {
   /// Only supported on Android.
   wireless,
 
-  /// Only supported on MacOS
-  camera,
 
+}
+enum PrivacyType {
+  location,
+  contacts,
+  calendar,
+  reminders,
+  photos,
+  bluetooth,
+  microphone,
+  camera,
+  motion,
+  homeKit,
+  speechRecognition,
+  mediaAndAppleMusic,
+  filesAndFolders,
+  fullDiskAccess,
+  focus,
+  accessibility,
+  inputMonitoring,
+  screenRecording,
+  passkeysAccess,
+  automation,
+  appManagement,
+  developerTools,
+  sensitiveContentWarning,
+  analyticsAndImprovements,
+  appleAdvertising,
+  fileVault,
+  lockdownMode,
+  advanced,
+  extensions,
+  profiles,
+  legacyProfiles;
+
+  String getRawValue() {
+    return {
+      PrivacyType.location: "Privacy_LocationServices",
+      PrivacyType.contacts: "Privacy_Contacts",
+      PrivacyType.calendar: "Privacy_Calendars",
+      PrivacyType.reminders: "Privacy_Reminders",
+      PrivacyType.photos: "Privacy_Photos",
+      PrivacyType.bluetooth: "Privacy_Bluetooth",
+      PrivacyType.microphone: "Privacy_Microphone",
+      PrivacyType.camera: "Privacy_Camera",
+      PrivacyType.motion: "Privacy_Motion",
+      PrivacyType.homeKit: "Privacy_HomeKit",
+      PrivacyType.speechRecognition: "Privacy_SpeechRecognition",
+      PrivacyType.mediaAndAppleMusic: "Privacy_Media",
+      PrivacyType.filesAndFolders: "Privacy_FilesAndFolders",
+      PrivacyType.fullDiskAccess: "Privacy_AllFiles",
+      PrivacyType.focus: "Privacy_Focus",
+      PrivacyType.accessibility: "Privacy_Accessibility",
+      PrivacyType.inputMonitoring: "Privacy_ListenEvent",
+      PrivacyType.screenRecording: "Privacy_ScreenCapture",
+      PrivacyType.passkeysAccess: "Privacy_PasskeyAccess",
+      PrivacyType.automation: "Privacy_Automation",
+      PrivacyType.appManagement: "Privacy_AppBundles",
+      PrivacyType.developerTools: "Privacy_DevTools",
+      PrivacyType.sensitiveContentWarning: "Privacy_NudityDetection",
+      PrivacyType.analyticsAndImprovements: "Privacy_Analytics",
+      PrivacyType.appleAdvertising: "Privacy_Advertising",
+      PrivacyType.fileVault: "FileVault",
+      PrivacyType.lockdownMode: "LockdownMode",
+      PrivacyType.advanced: "Advanced",
+    }[this]!;
+  }
 }
