@@ -35,4 +35,10 @@ abstract class AppSettingsPlatform extends PlatformInterface {
   Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
     throw UnimplementedError('openAppSettingsPanel() has not yet been implemented.');
   }
+
+  Future<void> openPrivacySecuritySession(PrivacyType type) {
+    throw UnimplementedError('openPrivateSecuritySession() has not yet been implemented.');
+  }
+
+
 }

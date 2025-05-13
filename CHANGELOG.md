@@ -1,6 +1,12 @@
+
+## 6.2.0
+-  Added openPrivacySession() to access platform specific 'Privacy and Security' settings (Only MacOS) .
+
+
 ## 6.1.1
 - Users can request permission to install apps
   
+
 ## 6.1.0
 -  Added openAppSettings() to access platform specific 'camera' settings (Only MacOS) . 
 

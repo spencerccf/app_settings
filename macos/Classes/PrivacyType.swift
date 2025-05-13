@@ -1,0 +1,40 @@
+enum PrivacyType: String {
+    case location = "Privacy_LocationServices"
+    case contacts = "Privacy_Contacts"
+    case calendar = "Privacy_Calendars"
+    case reminders = "Privacy_Reminders"
+    case photos = "Privacy_Photos"
+    case bluetooth = "Privacy_Bluetooth"
+    case microphone = "Privacy_Microphone"
+    case camera = "Privacy_Camera"
+    case motion = "Privacy_Motion"
+    case homeKit = "Privacy_HomeKit"
+    case speechRecognition = "Privacy_SpeechRecognition"
+    case mediaAndAppleMusic = "Privacy_Media"
+    case filesAndFolders = "Privacy_FilesAndFolders"
+    case fullDiskAccess = "Privacy_AllFiles"
+    case focus = "Privacy_Focus"
+    case accessibility = "Privacy_Accessibility"
+    case inputMonitoring = "Privacy_ListenEvent"
+    case screenRecording = "Privacy_ScreenCapture"
+    case passkeysAccess = "Privacy_PasskeyAccess"
+    case automation = "Privacy_Automation"
+    case appManagement = "Privacy_AppBundles"
+    case developerTools = "Privacy_DevTools"
+    case sensitiveContentWarning = "Privacy_NudityDetection"
+    case analyticsAndImprovements = "Privacy_Analytics"
+    case appleAdvertising = "Privacy_Advertising"
+    case fileVault = "FileVault"
+    case lockdownMode = "LockdownMode"
+    case advanced = "Advanced"
+    case extensions = "com.apple.ExtensionsPreferences"
+    case profiles = "com.apple.Profiles-Settings.extension"
+    case legacyProfiles = "com.apple.preferences.configurationprofiles"
+
+    func url() -> String {
+        if self == .extensions || self == .profiles || self == .legacyProfiles {
+            return "x-apple.systempreferences:\(self.rawValue)"
+        }
+        return "x-apple.systempreferences:com.apple.preference.security?\(self.rawValue)"
+    }
+}

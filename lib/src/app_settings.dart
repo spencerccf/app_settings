@@ -22,4 +22,8 @@ class AppSettings {
   static Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
     return AppSettingsPlatform.instance.openAppSettingsPanel(type);
   }
+
+  static Future<void> openPrivateSecurity(PrivacyType type) {
+    return AppSettingsPlatform.instance.openPrivacySecuritySession(type);
+  }
 }
