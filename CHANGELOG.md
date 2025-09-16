@@ -1,3 +1,6 @@
+## 6.2.0
+- Upgrade android compile skd version from 33 to 35
+
 ## 6.1.1
 - Users can request permission to install apps
   
