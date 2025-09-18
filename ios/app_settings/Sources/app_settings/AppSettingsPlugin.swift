@@ -30,6 +30,8 @@ public class AppSettingsPlugin: NSObject, @preconcurrency FlutterPlugin, UIWindo
         case "notification":
             if #available(iOS 16.0, *) {
                 openSettings(settingsUrl: UIApplication.openNotificationSettingsURLString)
+            } else if #available(iOS 15.4, *) {
+                openSettings(settingsUrl: UIApplicationOpenNotificationSettingsURLString)
             } else {
                 openSettings(settingsUrl: UIApplication.openSettingsURLString)
             }
