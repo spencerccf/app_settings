@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'app_settings'
-  s.version          = '5.1.1'
+  s.version          = '6.1.2'
   s.summary          = 'A Flutter plugin for opening iOS and Android phone settings from an app.'
   s.description      = 'A Flutter plugin for opening iOS and Android phone settings from an app.'
   s.homepage         = 'https://github.com/spencerccf/app_settings'
