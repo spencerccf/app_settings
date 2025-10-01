@@ -20,7 +20,7 @@ let package = Package(
             name: "app_settings",
             dependencies: [],
             resources: [
-                .process("PrivacyInfo.xcprivacy"),
+                .process("../../Resources/PrivacyInfo.xcprivacy"),
             ]
         ),
     ]

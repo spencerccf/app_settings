@@ -3,7 +3,7 @@ description: Demonstrates how to use the app_settings plugin.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none'
-version: 5.1.1
+version: 6.1.2
 
 environment:
   sdk: '>=2.18.0 <4.0.0'
