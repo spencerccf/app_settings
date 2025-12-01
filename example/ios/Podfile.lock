@@ -1,20 +1,14 @@
 PODS:
-  - app_settings (5.1.1):
-    - Flutter
   - Flutter (1.0.0)
 
 DEPENDENCIES:
-  - app_settings (from `.symlinks/plugins/app_settings/ios`)
   - Flutter (from `Flutter`)
 
 EXTERNAL SOURCES:
-  app_settings:
-    :path: ".symlinks/plugins/app_settings/ios"
   Flutter:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  app_settings: a3361a102a18a69c57b3faa073f56626229889a1
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
