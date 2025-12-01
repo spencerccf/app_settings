@@ -10,7 +10,8 @@ class AppSettings {
     AppSettingsType type = AppSettingsType.settings,
     bool asAnotherTask = false,
   }) {
-    return AppSettingsPlatform.instance.openAppSettings(type: type, asAnotherTask: asAnotherTask);
+    return AppSettingsPlatform.instance
+        .openAppSettings(type: type, asAnotherTask: asAnotherTask);
   }
 
   /// Open an application settings panel.
@@ -22,4 +23,6 @@ class AppSettings {
   static Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
     return AppSettingsPlatform.instance.openAppSettingsPanel(type);
   }
+
+  getPlatformVersion() {}
 }
