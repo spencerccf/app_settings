@@ -7,9 +7,22 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockAppSettingsPlatform
     with MockPlatformInterfaceMixin
     implements AppSettingsPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future<void> openAppSettings(
+      {AppSettingsType type = AppSettingsType.settings,
+      bool asAnotherTask = false}) {
+    // TODO: implement openAppSettings
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
+    // TODO: implement openAppSettingsPanel
+    throw UnimplementedError();
+  }
 }
 
 void main() {

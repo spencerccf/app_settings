@@ -8,7 +8,8 @@ import 'app_settings_platform_interface.dart';
 class MethodChannelAppSettings extends AppSettingsPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('com.spencerccf.app_settings/methods');
+  final methodChannel =
+      const MethodChannel('com.spencerccf.app_settings/methods');
 
   @override
   Future<void> openAppSettings({
@@ -26,5 +27,9 @@ class MethodChannelAppSettings extends AppSettingsPlatform {
     return methodChannel.invokeMethod<void>('openSettingsPanel', {
       'type': type.name,
     });
+  }
+
+  getPlatformVersion() {
+    return methodChannel.invokeMethod<String>('getPlatformVersion');
   }
 }

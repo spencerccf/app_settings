@@ -1,3 +1,12 @@
+## 7.0.0
+- fix: add preconcurrency annotation in swift api
+- fix: no rule to process file (xcprivacy) #240
+- fix: Upgrade Gradle and Kotlin versions #231
+- Feature/upgrade android compile version to 35
+- open notification screen on iOS 15.4-16.0
+- fix: privacyInfo for SPM
+- Update build.gradle
+
 ## 6.1.1
 - Users can request permission to install apps
   
