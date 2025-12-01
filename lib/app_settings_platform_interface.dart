@@ -33,6 +33,7 @@ abstract class AppSettingsPlatform extends PlatformInterface {
   }
 
   Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
-    throw UnimplementedError('openAppSettingsPanel() has not yet been implemented.');
+    throw UnimplementedError(
+        'openAppSettingsPanel() has not yet been implemented.');
   }
 }

@@ -133,5 +133,4 @@ enum AppSettingsType {
 
   /// Only supported on MacOS
   camera,
-
 }
