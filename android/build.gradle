@@ -25,8 +25,12 @@ allprojects {
     }
 }
 
+def isAgp9OrAbove = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger() >= 9
+
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+if (!isAgp9OrAbove) {
+    apply plugin: 'kotlin-android'
+}
 
 android {
     compileSdkVersion 36
@@ -38,8 +42,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
+    if (!isAgp9OrAbove) {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11
+        }
     }
 
     sourceSets {
