@@ -7,21 +7,22 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockAppSettingsPlatform
     with MockPlatformInterfaceMixin
     implements AppSettingsPlatform {
-  @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  AppSettingsType? lastOpenedType;
+  bool? lastAsAnotherTask;
+  AppSettingsPanelType? lastOpenedPanelType;
 
   @override
-  Future<void> openAppSettings(
-      {AppSettingsType type = AppSettingsType.settings,
-      bool asAnotherTask = false}) {
-    // TODO: implement openAppSettings
-    throw UnimplementedError();
+  Future<void> openAppSettings({
+    AppSettingsType type = AppSettingsType.settings,
+    bool asAnotherTask = false,
+  }) async {
+    lastOpenedType = type;
+    lastAsAnotherTask = asAnotherTask;
   }
 
   @override
-  Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
-    // TODO: implement openAppSettingsPanel
-    throw UnimplementedError();
+  Future<void> openAppSettingsPanel(AppSettingsPanelType type) async {
+    lastOpenedPanelType = type;
   }
 }
 
@@ -32,11 +33,26 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelAppSettings>());
   });
 
-  test('getPlatformVersion', () async {
-    AppSettings appSettingsPlugin = AppSettings();
-    MockAppSettingsPlatform fakePlatform = MockAppSettingsPlatform();
-    AppSettingsPlatform.instance = fakePlatform;
+  test('openAppSettings forwards to the platform implementation', () async {
+    final mockPlatform = MockAppSettingsPlatform();
+    AppSettingsPlatform.instance = mockPlatform;
 
-    expect(await appSettingsPlugin.getPlatformVersion(), '42');
+    await AppSettings.openAppSettings(
+      type: AppSettingsType.location,
+      asAnotherTask: true,
+    );
+
+    expect(mockPlatform.lastOpenedType, AppSettingsType.location);
+    expect(mockPlatform.lastAsAnotherTask, true);
+  });
+
+  test('openAppSettingsPanel forwards to the platform implementation',
+      () async {
+    final mockPlatform = MockAppSettingsPlatform();
+    AppSettingsPlatform.instance = mockPlatform;
+
+    await AppSettings.openAppSettingsPanel(AppSettingsPanelType.wifi);
+
+    expect(mockPlatform.lastOpenedPanelType, AppSettingsPanelType.wifi);
   });
 }

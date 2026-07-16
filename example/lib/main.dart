@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:app_settings/app_settings.dart';
 
@@ -160,7 +162,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final appSettingsActions = getOpenAppSettingsActions();
-    final appSettingsPanelActions = getOpenAppSettingsPanelActions();
 
     return MaterialApp(
       home: Scaffold(
@@ -181,18 +182,24 @@ class _MyAppState extends State<MyApp> {
             SliverList(
               delegate: SliverChildListDelegate.fixed(appSettingsActions),
             ),
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'openAppSettingsPanel() options',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            // Settings panels are an Android Q+ feature, so these options are
+            // only shown when running on Android.
+            if (Platform.isAndroid) ...[
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'openAppSettingsPanel() options',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate.fixed(appSettingsPanelActions),
-            ),
+              SliverList(
+                delegate: SliverChildListDelegate.fixed(
+                    getOpenAppSettingsPanelActions()),
+              ),
+            ],
           ],
         ),
       ),

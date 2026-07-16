@@ -23,6 +23,4 @@ class AppSettings {
   static Future<void> openAppSettingsPanel(AppSettingsPanelType type) {
     return AppSettingsPlatform.instance.openAppSettingsPanel(type);
   }
-
-  getPlatformVersion() {}
 }

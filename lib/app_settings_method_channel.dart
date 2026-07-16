@@ -28,8 +28,4 @@ class MethodChannelAppSettings extends AppSettingsPlatform {
       'type': type.name,
     });
   }
-
-  getPlatformVersion() {
-    return methodChannel.invokeMethod<String>('getPlatformVersion');
-  }
 }

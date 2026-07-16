@@ -1,21 +1,24 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:app_settings/app_settings_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelAppSettings platform = MethodChannelAppSettings();
-  const MethodChannel channel = MethodChannel('app_settings');
+  final MethodChannelAppSettings platform = MethodChannelAppSettings();
+  const MethodChannel channel =
+      MethodChannel('com.spencerccf.app_settings/methods');
+
+  final List<MethodCall> log = <MethodCall>[];
 
   setUp(() {
+    log.clear();
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+      log.add(methodCall);
+      return null;
+    });
   });
 
   tearDown(() {
@@ -23,7 +26,30 @@ void main() {
         .setMockMethodCallHandler(channel, null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await platform.getPlatformVersion(), '42');
+  test('openAppSettings invokes openSettings with the expected arguments',
+      () async {
+    await platform.openAppSettings(
+      type: AppSettingsType.location,
+      asAnotherTask: true,
+    );
+
+    expect(log, <Matcher>[
+      isMethodCall('openSettings', arguments: <String, dynamic>{
+        'asAnotherTask': true,
+        'type': 'location',
+      }),
+    ]);
+  });
+
+  test(
+      'openAppSettingsPanel invokes openSettingsPanel with the expected arguments',
+      () async {
+    await platform.openAppSettingsPanel(AppSettingsPanelType.wifi);
+
+    expect(log, <Matcher>[
+      isMethodCall('openSettingsPanel', arguments: <String, dynamic>{
+        'type': 'wifi',
+      }),
+    ]);
   });
 }

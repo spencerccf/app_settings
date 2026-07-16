@@ -14,13 +14,17 @@ let package = Package(
             name: "app-settings",
             targets: ["app_settings"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(name: "FlutterFramework", path: "../FlutterFramework")
+    ],
     targets: [
         .target(
             name: "app_settings",
-            dependencies: [],
+            dependencies: [
+                .product(name: "FlutterFramework", package: "FlutterFramework")
+            ],
             resources: [
-                .process("../../Resources/PrivacyInfo.xcprivacy"),
+                .process("PrivacyInfo.xcprivacy"),
             ]
         ),
     ]
