@@ -15,11 +15,8 @@ import 'package:app_settings/app_settings.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('getPlatformVersion test', (WidgetTester tester) async {
-    final AppSettings plugin = AppSettings();
-    final String? version = await plugin.getPlatformVersion();
-    // The version string depends on the host platform running the test, so
-    // just assert that some non-empty string is returned.
-    expect(version?.isNotEmpty, true);
+  testWidgets('openAppSettings completes without throwing',
+      (WidgetTester tester) async {
+    await expectLater(AppSettings.openAppSettings(), completes);
   });
 }

@@ -1,3 +1,14 @@
+## 8.0.0
+- BREAKING: Drop CocoaPods support for iOS and macOS. Consuming apps must build with Swift Package Manager (supported by Flutter 3.24+); remove `ios/app_settings.podspec` and `macos/app_settings.podspec`.
+- fix: macOS plugin now ships its real implementation (`AppSettingsPlugin.swift`, `AppSettingsEnums.swift`) through the Swift Package Manager `Sources` layout instead of the old `Classes/` CocoaPods-only source set.
+- fix: bundle `PrivacyInfo.xcprivacy` correctly for both iOS and macOS SPM targets (the iOS `Package.swift` previously pointed at a resource path Xcode rejected as "unhandled").
+- Add an explicit `FlutterFramework` package dependency to both `Package.swift` files, per Flutter's current Swift Package Manager plugin-authoring guidance.
+- Example app: remove `Podfile`/`Podfile.lock`/`Pods/` for iOS and macOS; Xcode projects now resolve plugins via Swift Package Manager only.
+- Remove dead, non-functional `getPlatformVersion()` leftover from the original plugin template (`lib/app_settings_method_channel.dart`, `lib/src/app_settings.dart`) — it was never implemented on any platform and always threw `MissingPluginException`.
+- Rewrite unit tests (`test/app_settings_test.dart`, `test/app_settings_method_channel_test.dart`) to exercise real `openAppSettings`/`openAppSettingsPanel` behavior instead of stale, throwing mocks.
+- Example app: only show the "openAppSettingsPanel() options" section on Android, since settings panels are an Android Q+ feature.
+- Update Android Gradle Plugin (8.7.3 -> 8.11.1), Kotlin (2.1.0 -> 2.2.20), and the Gradle wrapper (8.12 -> 8.14) in the example app to clear Flutter's outdated-toolchain warnings; align the plugin's own `android/build.gradle` `kotlin_version`/`gradle_version` to match.
+
 ## 7.0.0
 - fix: add preconcurrency annotation in swift api
 - fix: no rule to process file (xcprivacy) #240
