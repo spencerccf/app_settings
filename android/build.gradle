@@ -33,7 +33,7 @@ if (!isAgp9OrAbove) {
 }
 
 android {
-    compileSdkVersion 36
+    compileSdk = 36
 
     namespace 'com.spencerccf.app_settings'
     
@@ -53,7 +53,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdk = 16
     }
 }
 
