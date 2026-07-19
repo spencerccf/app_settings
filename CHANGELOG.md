@@ -1,3 +1,7 @@
+## 8.0.1
+- fix: `android/build.gradle` no longer conditionally skips applying the `kotlin-android` plugin on AGP 9+. That guard broke every consuming app on AGP 9 with the (default) `android.builtInKotlin=false`, producing `error: cannot find symbol / class AppSettingsPlugin` in the generated plugin registrant at build time.
+  Root cause: Flutter's own Gradle tooling (`FlutterPluginUtils.detectApplyingKotlinGradlePlugin`) decides whether to auto-apply `kotlin-android` for a plugin subproject by regex-matching the literal `apply plugin: 'kotlin-android'` text in that subproject's `build.gradle` — it does not evaluate Groovy conditionals. So even though our runtime guard (`if (!isAgp9OrAbove) { ... }`) skipped applying the plugin on AGP 9, Flutter's static text-based detection still saw the line and assumed KGP was already handled, so it didn't apply it either. Net effect: nothing ever compiled this module's Kotlin source on AGP 9. Verified against a real AGP 9.0.1 / Gradle 9.1.0 project. See [#270](https://github.com/spencerccf/app_settings/pull/270) for the original (incorrect) guard.
+
 ## 8.0.0
 - BREAKING: Drop CocoaPods support for iOS and macOS. Consuming apps must build with Swift Package Manager (supported by Flutter 3.24+); remove `ios/app_settings.podspec` and `macos/app_settings.podspec`.
 - fix: macOS plugin now ships its real implementation (`AppSettingsPlugin.swift`, `AppSettingsEnums.swift`) through the Swift Package Manager `Sources` layout instead of the old `Classes/` CocoaPods-only source set.
