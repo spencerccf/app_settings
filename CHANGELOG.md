@@ -1,3 +1,6 @@
+## 8.0.3
+- `android/build.gradle` now reads the actual `android.builtInKotlin` Gradle property (inherited from the consuming app's root project) instead of guessing from the AGP major version alone. `kotlin-android` is only skipped for consumers who have genuinely opted into AGP's built-in Kotlin support; it's still applied (avoiding the 8.0.1 bug) for the default `android.builtInKotlin=false`. Verified both branches against a real AGP 9.0.1 project: with the default `false`, the plugin builds correctly; with `true`, skipping `kotlin-android` avoids the `'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin support since AGP 9.0` failure that other still-unmigrated plugins in the same build hit.
+
 ## 8.0.2
 - fix: `android/build.gradle` now sets `compileSdk = 36` / `minSdk = 16` (property-assignment syntax) instead of the deprecated `compileSdkVersion 36` / `minSdkVersion 16` method-call syntax, since the latter is unavailable under AGP 9's "new DSL" mode. Property assignment has worked since AGP 7.0, so this is backward-compatible with AGP 7.x/8.x too. Adapted from a suggestion at [qeepcologne/app_settings@agp9-new-dsl](https://github.com/qeepcologne/app_settings/tree/agp9-new-dsl).
 
