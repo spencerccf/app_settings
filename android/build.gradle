@@ -25,22 +25,29 @@ allprojects {
     }
 }
 
-// Always apply kotlin-android unconditionally, even on AGP 9+.
+// Only skip applying kotlin-android when the consuming app has explicitly opted
+// into AGP's built-in Kotlin support via android.builtInKotlin=true. Otherwise
+// always apply it, even on AGP 9+.
 //
-// A previous version of this file skipped applying kotlin-android when AGP 9+ was
-// detected, on the assumption that AGP 9's built-in Kotlin support would compile
-// AppSettingsPlugin.kt instead. That broke consuming apps on AGP 9 with the default
-// android.builtInKotlin=false: Flutter's own Gradle plugin loader
-// (FlutterPluginUtils.detectApplyingKotlinGradlePlugin) decides whether to
-// auto-apply kotlin-android for a subproject by regex-matching the literal
-// "apply plugin: 'kotlin-android'" text in this file — it does not evaluate Groovy
-// conditionals. So even though the runtime guard skipped applying the plugin on
-// AGP 9, Flutter's static detection still saw the line and assumed KGP was already
-// applied, so it didn't step in either. Net result: nothing ever compiled this
-// module's Kotlin source on AGP 9, causing "cannot find symbol: AppSettingsPlugin"
-// in the generated plugin registrant. See https://github.com/spencerccf/app_settings/pull/270.
+// A previous version of this file skipped applying kotlin-android whenever AGP 9+
+// was detected, regardless of this property, on the assumption that AGP 9's
+// built-in Kotlin support would compile AppSettingsPlugin.kt instead. That broke
+// consuming apps on AGP 9 with the (default) android.builtInKotlin=false: Flutter's
+// own Gradle plugin loader (FlutterPluginUtils.detectApplyingKotlinGradlePlugin)
+// decides whether to auto-apply kotlin-android for a subproject by regex-matching
+// the literal "apply plugin: 'kotlin-android'" text in this file — it does not
+// evaluate Groovy conditionals. So even though the runtime guard skipped applying
+// the plugin on AGP 9, Flutter's static detection still saw the line and assumed
+// KGP was already applied, so it didn't step in either. Net result: nothing ever
+// compiled this module's Kotlin source on AGP 9, causing
+// "cannot find symbol: AppSettingsPlugin" in the generated plugin registrant.
+// See https://github.com/spencerccf/app_settings/pull/270.
+def builtInKotlinEnabled = (project.findProperty('android.builtInKotlin') ?: 'false').toString().toBoolean()
+
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+if (!builtInKotlinEnabled) {
+    apply plugin: 'kotlin-android'
+}
 
 android {
     compileSdk = 36
@@ -52,8 +59,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11
+    if (!builtInKotlinEnabled) {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11
+        }
     }
 
     sourceSets {
