@@ -1,3 +1,6 @@
+## 9.0.0
+- BREAKING: raise SwiftPM iOS platform minimum to 13.0- [#284](https://github.com/spencerccf/app_settings/pull/284)
+
 ## 8.0.3
 - `android/build.gradle` now reads the actual `android.builtInKotlin` Gradle property (inherited from the consuming app's root project) instead of guessing from the AGP major version alone. `kotlin-android` is only skipped for consumers who have genuinely opted into AGP's built-in Kotlin support; it's still applied (avoiding the 8.0.1 bug) for the default `android.builtInKotlin=false`. Verified both branches against a real AGP 9.0.1 project: with the default `false`, the plugin builds correctly; with `true`, skipping `kotlin-android` avoids the `'org.jetbrains.kotlin.android' plugin is no longer required for Kotlin support since AGP 9.0` failure that other still-unmigrated plugins in the same build hit.
 
