@@ -1,3 +1,6 @@
+## 9.0.1
+- fix: raise SwiftPM macOS platform minimum to 10.15 to match `FlutterFramework`. With 10.14, Xcode fails the macOS build with `The package product 'FlutterFramework' requires minimum platform version 10.15 for the macOS platform, but this target supports 10.14`.
+
 ## 9.0.0
 - BREAKING: raise SwiftPM iOS platform minimum to 13.0- [#284](https://github.com/spencerccf/app_settings/pull/284)
 

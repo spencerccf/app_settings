@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "app_settings",
     platforms: [
-        .macOS("10.14")
+        .macOS("10.15")
     ],
     products: [
         .library(name: "app-settings", targets: ["app_settings"])
