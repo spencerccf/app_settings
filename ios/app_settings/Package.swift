@@ -7,7 +7,7 @@ let package = Package(
     name: "app_settings",
     platforms: [
         .iOS("13.0"),
-        .macOS("10.14")
+        .macOS("10.15")
     ],
     products: [
         .library(
