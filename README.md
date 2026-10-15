@@ -8,6 +8,8 @@ A Flutter plugin for opening iOS and Android phone settings from an app.
 
 - Supports **Swift Package Manager (SPM)** for iOS integration.
 - Opens various settings pages (e.g., location, Wi-Fi, etc.) for both Android and iOS.
+- Optional on-device AI settings proposals via
+  [`app_settings_ai`](https://pub.dev/packages/app_settings_ai).
 
 ## Installation
 
