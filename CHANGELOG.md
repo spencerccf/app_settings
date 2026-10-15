@@ -1,3 +1,7 @@
+## 9.0.1
+- Documentation only. Link the new [`app_settings_ai`](https://pub.dev/packages/app_settings_ai) companion package, which adds optional on-device AI settings proposals (Apple Foundation Models on iOS 26+, ML Kit GenAI / Gemini Nano on Android) and opens the proposed screens through this plugin. It is a separate package so `app_settings` stays dependency-free - [#292](https://github.com/spencerccf/app_settings/pull/292), [#293](https://github.com/spencerccf/app_settings/pull/293)
+- No code, API or dependency changes.
+
 ## 9.0.0
 - BREAKING: raise SwiftPM iOS platform minimum to 13.0- [#284](https://github.com/spencerccf/app_settings/pull/284)
 
