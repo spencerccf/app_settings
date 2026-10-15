@@ -73,3 +73,15 @@ Widget build(BuildContext context) {
 ```
 
 Settings panels are not supported on other platforms.
+
+## On-device AI settings proposals
+
+[`app_settings_ai`](https://pub.dev/packages/app_settings_ai) is a companion package
+that turns a natural-language complaint — *"I'm not getting message alerts"* — into a
+ranked list of settings screens to open, then opens them through this plugin.
+Inference runs entirely on the device: Apple Foundation Models on iOS 26+ and the ML
+Kit GenAI Prompt API (Gemini Nano) on supported Android devices.
+
+It is a separate package so that `app_settings` stays dependency-free — apps that only
+need to open a settings screen don't pay for an on-device model runtime or a raised
+SDK floor.
