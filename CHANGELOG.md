@@ -1,3 +1,9 @@
+## 10.0.0
+- BREAKING: Updates the minimum supported SDK version to Flutter 3.44/Dart 3.12, as required by the [built-in Kotlin migration guide for plugin authors](https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors) - [#288](https://github.com/spencerccf/app_settings/issues/288)
+- Migrates to built-in Kotlin. `android/build.gradle` no longer applies `kotlin-android` (and no longer reads `android.builtInKotlin` itself); Flutter applies KGP for consumers that have not opted into built-in Kotlin. `kotlinOptions` is replaced by `kotlin { compilerOptions }`. This also fixes Flutter 3.47+ apps on AGP 9 that leave `android.builtInKotlin` unset, which Flutter treats as `true` but the previous check treated as `false`.
+- Update Android Gradle Plugin (8.11.1 -> 9.1.0), Kotlin (2.2.20 -> 2.4.0) and the Gradle wrapper (-> 9.3.1) in the plugin and example app. The example app now builds with `android.builtInKotlin=true`.
+- Verified with Flutter 3.47.7: example app builds on AGP 9.1 with `android.builtInKotlin=true` and `false`, and on AGP 8.13.
+
 ## 9.0.1
 - Documentation only. Link the new [`app_settings_ai`](https://pub.dev/packages/app_settings_ai) companion package, which adds optional on-device AI settings proposals (Apple Foundation Models on iOS 26+, ML Kit GenAI / Gemini Nano on Android) and opens the proposed screens through this plugin. It is a separate package so `app_settings` stays dependency-free - [#292](https://github.com/spencerccf/app_settings/pull/292), [#293](https://github.com/spencerccf/app_settings/pull/293)
 - No code, API or dependency changes.
